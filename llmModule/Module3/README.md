@@ -1,26 +1,27 @@
-# Module3：导航可行性验证
+# Module 3: Navigation Feasibility Verification
 
-> 公开版状态：实体、拓扑、几何和 Nav2 验证代码保留；默认固定路线演示不启动本模块。
+> Public status: entity, topology, geometry, and Nav2 verification code remains; the default
+> fixed-route demo does not start this module.
 
-Module3 应对已解析的目标执行 fail-closed 验证，不直接控制机器人：
+Module 3 performs fail-closed verification of a resolved goal and never directly controls the robot:
 
-1. 实体与地图版本一致；
-2. 语义拓扑可达；
-3. 目标和约束位姿在当前 costmap 中合法；
-4. 隔离的 Nav2 planner 能产生全局可行结果。
+1. Entity and map versions match.
+2. Semantic topology is reachable.
+3. Goal and constrained poses are valid in the current costmap.
+4. The isolated Nav2 planner can produce a globally feasible result.
 
-主要输入/输出为 `/semantic_navigation/resolution`、
-`/semantic_navigation/verification` 和
-`/semantic_navigation/verification_readiness`。正式链路只有在 readiness 为真且所有启用
-检查通过后才能交给 Module4。
+Primary inputs and outputs are `/semantic_navigation/resolution`,
+`/semantic_navigation/verification`, and `/semantic_navigation/verification_readiness`. The formal
+chain may pass a result to Module 4 only when readiness is true and every enabled check passes.
 
-## 正式替换与本机适配
+## Formal Replacement and Host Adaptation
 
-部署者需要适配 map topic、global frame、robot base frame、footprint、Nav2 参数和 keepout
-mask。`map -> odom -> base_link` 必须存在；不能用静态假 TF 掩盖里程计缺失。配置中的研究
-开关仅用于隔离故障，任何 `SKIPPED/BYPASSED` 不能被报告为安全验收通过。
+Adapt the map topic, global frame, robot base frame, footprint, Nav2 parameters, and keepout mask.
+`map -> odom -> base_link` must exist; a static fake TF must not hide missing odometry. Research
+switches isolate faults only: `SKIPPED` and `BYPASSED` are never a safe acceptance result.
 
-动态 LiDAR/相机安全属于执行层。静态规划成功不证明路径在执行时安全。
+Dynamic LiDAR and camera safety belong to the execution layer. A successful static plan does not
+prove that the path is safe during execution.
 
-验证日志和 costmap 快照可能暴露室内结构，应写到仓库外的受控目录并按根
-`SECURITY.md` 去敏。
+Verification logs and costmap snapshots may expose indoor structure. Store them outside the repository
+in a controlled directory and sanitize them according to the root `SECURITY.md`.

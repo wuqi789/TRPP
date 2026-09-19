@@ -11,7 +11,7 @@
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10+-green.svg)](https://www.python.org/)
 
-[English](#overview) | [中文](README_CN.md)
+[English](#overview) | [Compatibility page](README_CN.md)
 
 </div>
 

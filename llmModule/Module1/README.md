@@ -1,29 +1,32 @@
-# Module1：语言意图解析
+# Module 1: Language Intent Parsing
 
-> 公开版状态：接口、JSON 校验、provider 抽象和离线测试保留；默认穿帘演示不启动本模块。
+> Public status: interfaces, JSON validation, provider abstraction, and offline tests remain; the
+> default curtain demo does not start this module.
 
-Module1 应把 `/user_instruction` 的自然语言请求转换为结构化导航意图。它只负责语言边界，
-不生成速度、轨迹或控制命令。
+Module 1 converts the natural-language request on `/user_instruction` into a structured navigation
+intent. It owns the language boundary and never generates velocity, trajectories, or control commands.
 
-## 接口
+## Interface
 
-- 输入：`/user_instruction` (`std_msgs/msg/String`)
-- 输出：`/navigation_intent` 或集成链中的等价 canonical intent
-- 结果字段：目标、参考实体、空间关系、约束和策略
+- Input: `/user_instruction` (`std_msgs/msg/String`)
+- Output: `/navigation_intent`, or the equivalent canonical intent in an integrated chain
+- Fields: target, reference entities, spatial relations, constraints, and policy
 
-模型输出必须经过严格结构校验；超时、鉴权失败、非法 JSON 或未知字段均不得伪造成功。
+Model output must pass strict schema validation. Timeout, authentication failure, invalid JSON, or
+unknown fields must never be reported as success.
 
-## 正式替换与本机适配
+## Formal Replacement and Host Adaptation
 
-`llm_agent/llm_interface.py` 是 provider 边界。正式实现可以接本地模型或外部服务，但需
-保持 parser 契约和失败语义。endpoint、模型名、CA、代理和凭据由部署环境提供；公开配置
-只保留无效示例 endpoint 与环境变量名。不要把真实值写入 `config/*.yaml`。
+`llm_agent/llm_interface.py` is the provider boundary. A formal implementation may use a local model
+or an external service while preserving parser and failure semantics. The deployment environment
+supplies the endpoint, model name, CA, proxy, and credentials. Public configuration contains only
+invalid example endpoints and environment-variable names; real values do not belong in `config/*.yaml`.
 
-## 测试
+## Tests
 
 ```bash
 cd "$SCOUT_WORKSPACE/llmModule/Module1"
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest -q test/test_parser.py
 ```
 
-离线测试使用明确的占位值，不访问网络，也不得打印 credential 环境变量。
+Offline tests use explicit placeholders, access no network, and never print credential variables.

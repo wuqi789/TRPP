@@ -1,28 +1,29 @@
-# Module2：语义图与目标解析
+# Module 2: Semantic Graph and Goal Resolution
 
-> 公开版状态：静态图结构、Scout living-room 示例地图和查询逻辑保留；默认固定路线演示
-> 不启动本模块。
+> Public status: static graph structures, the Scout living-room example map, and query logic remain;
+> the default fixed-route demo does not start this module.
 
-Module2 应把 Module1 的结构化意图关联到场景实体、关系和目标位姿。它不负责 metric path、
-局部避障或底盘控制。
+Module 2 maps Module 1's structured intent to scene entities, relations, and a goal pose. It does not
+create metric paths, perform local obstacle avoidance, or control the base.
 
-## 接口和数据
+## Interfaces and Data
 
-- 实体、关系、位姿和拓扑查询 service
-- 输入导航意图，输出带唯一实体 ID 和目标位姿的语义目标
-- `maps/scout_kujiale_0021.yaml`：公开 living-room 静态语义示例
-- `maps/DCT_hospital_demo.yaml`：历史回归数据，不是默认场景
+- Services for entity, relation, pose, and topology queries
+- Navigation intent input and a semantic goal with a unique entity ID and pose
+- `maps/scout_kujiale_0021.yaml`: public static living-room example
+- `maps/DCT_hospital_demo.yaml`: historical regression data, not the default scene
 
-图节点可表示 room、object、waypoint、door 和 corridor；拓扑可达不等于物理可通行，
-后续 Module3 仍必须使用当前地图和 TF 验证。
+Graph nodes may represent rooms, objects, waypoints, doors, and corridors. Topological reachability
+does not prove physical traversability; Module 3 must still verify the current map and TF.
 
-## 正式替换与本机适配
+## Formal Replacement and Host Adaptation
 
-替换场景时更新实体 ID、坐标系、地图原点和关系数据，并移除住户、设备序列号等敏感
-字段。真实地图或数据库凭据放在仓库外。输出坐标必须明确 frame，并与 Module3/Isaac
-使用的 `map`/`odom` 约定一致。
+When replacing a scene, update entity IDs, frames, map origin, and relation data. Remove resident
+details and device serial numbers. Keep private maps and database credentials outside the repository.
+Every output pose must declare its frame and follow the `map`/`odom` convention used by Module 3 and
+Isaac Sim.
 
-## 测试
+## Tests
 
 ```bash
 cd "$SCOUT_WORKSPACE/llmModule/Module2"

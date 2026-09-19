@@ -1,44 +1,46 @@
-# 语义导航模块
+# Semantic Navigation Modules
 
-> 公开版状态：Module1-4 的契约、静态语义数据和参考实现保留，但默认穿帘演示不启动
-> 外部语义 provider。`scout_public_mock/fixed_route_driver` 直接提供确定性 waypoint 和执行状态。
+> Public status: Module 1-4 contracts, static semantic data, and reference implementations remain,
+> but the default curtain demo does not start external semantic providers. `scout_public_mock` and
+> `fixed_route_driver` provide deterministic waypoints and execution status.
 
-## 正式职责
+## Formal Pipeline
 
 ```text
 /user_instruction
-  -> Module1: 语言意图
-  -> Module2: 语义图实体与位姿解析
-  -> Module3: 实体/拓扑/几何/全局规划验证
-  -> Module4: waypoint 提议、校验和队列执行
+  -> Module1: language intent
+  -> Module2: semantic entities and pose resolution
+  -> Module3: entity, topology, geometry, and global-planning verification
+  -> Module4: waypoint proposal, validation, and queue execution
   -> /clicked_point -> NeuPAN
 ```
 
-`Interfaces` 定义共享 ROS 类型；`AffordanceMapping` 是可选可推性语义层。Module1 和
-Module4 的外部推理属于正式 adapter，不是公开默认能力。
+`Interfaces` defines shared ROS types. `AffordanceMapping` is an optional pushability semantic layer.
+External reasoning for Modules 1 and 4 is a formal adapter, not a default public capability.
 
-| 目录 | 当前公开内容 | 默认演示 |
+| Directory | Public content | Default demo |
 | --- | --- | --- |
-| `Interfaces` | 消息和 action 契约 | 使用 |
-| `Module1` | parser、provider 边界、mock 单测 | 不启动 |
-| `Module2` | 静态语义图和查询 | 不启动 |
-| `Module3` | 验证逻辑和隔离 Nav2 配置 | 不启动 |
-| `Module4` | 路线 provider 边界和执行监督 | 由固定路线替代 |
-| `AffordanceMapping` | 可推性地图接口 | 不启动 |
+| `Interfaces` | Message and action contracts | Used |
+| `Module1` | Parser, provider boundary, and mock tests | Not started |
+| `Module2` | Static semantic graph and queries | Not started |
+| `Module3` | Verification logic and isolated Nav2 configuration | Not started |
+| `Module4` | Route-provider boundary and execution supervision | Replaced by fixed route |
+| `AffordanceMapping` | Pushability map interface | Not started |
 
-## 正式接入
+## Formal Integration
 
-正式部署可以直接在模块目录中实现，但要保持 `semantic_navigation_interfaces`、topic/action
-名称、QoS、任务去重、取消和终态语义。推荐按 Module1 到 Module4 逐个替换，并先使用
-离线、去敏数据完成契约测试。
+Formal code may be implemented directly in each module, provided that
+`semantic_navigation_interfaces`, topic/action names, QoS, task de-duplication, cancellation, and
+terminal-state semantics remain unchanged. Replace Modules 1 through 4 one at a time and run
+contract tests with offline, sanitized data first.
 
-模型 endpoint、API 凭据、私有地图和诊断目录都是本机适配项。凭据只由 secret manager
-注入当前进程，不写入 YAML 或命令行。路线图像、模型响应和 execution audit 可能包含
-场景信息，应写到仓库外的受控运行目录。
+Model endpoints, API credentials, private maps, and diagnostic directories are host adaptations.
+Inject credentials into the process through a secret manager, never into YAML or command arguments.
+Store route images, model responses, and execution audits outside the repository.
 
-## 构建与测试
+## Build and Test
 
-依赖准备脚本可能联网并创建 `.venv`；这些内容不提交。示例：
+Dependency preparation may access the network and create `.venv`; do not commit those files:
 
 ```bash
 cd "$SCOUT_WORKSPACE/llmModule"
@@ -50,5 +52,5 @@ colcon build --symlink-install --packages-select \
   llm_semantic_affordance llm_module1 llm_module2 llm_module3 llm_module4
 ```
 
-公开固定路线演示仍从仓库根目录运行 `run_traversal_system.sh`，不需要启动此处的云端
-provider。各模块的边界和本机适配项见对应 README。
+The public fixed-route demo runs `run_traversal_system.sh` from the repository root and does not
+start cloud providers. See each module README for its boundary and host adaptations.

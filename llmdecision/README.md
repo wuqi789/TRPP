@@ -1,63 +1,64 @@
-# 障碍物可推性判别模块
+# Obstacle Pushability Assessment
 
-> 公开版状态：输入/输出 schema、ROS action、provider 抽象和离线 mock 测试保留；默认
-> 穿帘演示使用 `scout_public_mock`，不启动本目录的外部 LLM/VLM provider。
+> Public status: input/output schemas, the ROS action, provider abstractions, and offline mock tests
+> remain available. The default curtain demo uses `scout_public_mock` and does not start an external
+> LLM/VLM provider from this directory.
 
-## 正式职责
+## Formal Responsibility
 
-本模块应融合结构化场景描述、车辆状态、机械交互状态和可选知识库，返回障碍类别、
-`pushability_probability`、`push/avoid/stop` 建议、不确定性和风险标记。输出是决策证据，
-不是速度、机械臂或过滤授权命令。
+This module combines structured scene descriptions, vehicle state, mechanical interaction state, and
+optional knowledge sources. It returns an obstacle class, `pushability_probability`, a
+`push`/`avoid`/`stop` recommendation, uncertainty, and risk flags. The result is decision evidence;
+it is not a velocity, arm, or scan-filter authorization command.
 
-ROS 集成通过 `/llmdecision/assess_pushability` action 暴露。公开 mock 保持同一 action 类型
-并固定返回通过，仅用于验证跨模块数据流。
+ROS integration is exposed through `/llmdecision/assess_pushability`. The public mock uses the same
+action type and returns a deterministic pass result only to validate the cross-module data flow.
 
-## 目录边界
+## Directory Boundaries
 
-- `api/`：严格输入和输出 schema
-- `core/`：决策、融合、置信度和结果存储
-- `llm/`：provider 抽象及离线 mock
-- `vlm/`：视觉描述 provider 抽象
-- `rag/`：本地示例知识库
-- `llmdecision_ros/`：ROS 2 action adapter
-- `config/`：无凭据的示例配置
-- `examples/`：仅保留去敏 JSON schema 夹具，不保存真实图片或运行记录
+- `api/`: strict input and output schemas
+- `core/`: decision fusion, confidence, and result storage
+- `llm/`: provider abstraction and offline mock
+- `vlm/`: visual-description provider abstraction
+- `rag/`: local example knowledge base
+- `llmdecision_ros/`: ROS 2 action adapter
+- `config/`: credential-free example configuration
+- `examples/`: sanitized JSON fixtures only; no real images or run records
 
-## 正式替换与本机适配
+## Formal Replacement and Host Adaptation
 
-正式 provider 可在 `llm/`、`vlm/` 中实现，也可以由独立私有包提供 adapter。必须保持
-schema、action 名称、`request_id`、取消、超时和保守失败语义。公开代码只读取
-`SCOUT_DECISION_ADAPTER`、`SCOUT_PERCEPTION_ADAPTER` 的 `module:factory` 值；适配器自行
-管理模型、传输、凭据、证书、重试和私有路径。
+Implement a formal provider in `llm/` or `vlm/`, or supply an adapter from a private package. Keep
+the schema, action name, `request_id`, cancellation, timeout, and conservative failure semantics.
+Public code reads only `SCOUT_DECISION_ADAPTER` and `SCOUT_PERCEPTION_ADAPTER` values in
+`module:factory` form; the adapter owns models, transport, credentials, certificates, retries, and
+private paths.
 
-不要在 README、YAML、shell 参数或命令历史中写凭据。使用部署平台的 secret manager
-向当前进程注入，且错误日志不得包含 header、响应正文、远端 stderr 或环境变量值。
+Never put credentials in README files, YAML, shell arguments, or command history. Inject them from
+the deployment secret manager. Error logs must not contain headers, response bodies, remote stderr,
+or environment variable values.
 
-## 运行数据
+## Runtime Data
 
-默认运行产物写入 `llmdecision/runtime/`：
+Default output is written to the ignored `llmdecision/runtime/` directory:
 
-- `latest.json`：最近一次完成记录
-- `history/`：请求历史
-- `batch_*`、`latency_*`：批处理和延迟测试输出
+- `latest.json`: latest completion record
+- `history/`: request history
+- `batch_*`, `latency_*`: batch and latency test output
 
-`runtime/` 已被 Git 忽略，结果文件使用受限文件权限。公开代码不会保存 provider 原始
-响应、Prompt、traceback 或内部路径；真实图像和场景描述仍可能包含敏感信息，生产部署应
-把路径覆盖到仓库外的加密/受控存储并设置到期清理。
-不要把运行输出复制回 `examples/`。
+Runtime files use restricted permissions. Public code does not store raw provider responses, prompts,
+tracebacks, or internal paths. Real images and scene descriptions may still be sensitive; production
+deployments should redirect storage outside the repository and configure expiry cleanup.
 
-批处理默认查找 `examples/images/`，但公开仓库故意不提供该目录中的图片。测试者应在本机
-放入自行拥有且已去敏的 JPEG/PNG，或通过 `--images-dir` 指向仓库外的受控测试集；该目录
-已被 `.gitignore` 排除。
+The batch tool looks for `examples/images/` by default, but the public repository intentionally does
+not provide images there. Use an owned, sanitized local set or `--images-dir` pointing outside the
+repository.
 
-## 本地测试
-
-离线测试不需要网络或凭据：
+## Offline Tests
 
 ```bash
 cd "$SCOUT_WORKSPACE/llmdecision"
 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python3 -m pytest -q tests
 ```
 
-独立正式运行不是公开演示的组成部分。启用外部 provider 前，先阅读根 `SECURITY.md`，
-并确认所有配置仍使用外部 secret 注入和仓库外运行目录。
+Standalone formal execution is not part of the public demo. Read the root `SECURITY.md` before
+enabling an external provider.

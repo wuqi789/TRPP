@@ -9,7 +9,7 @@
 [![License](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10+-green.svg)](https://www.python.org/)
 
-[**中文版**](README_cn.md) | **English**
+[Compatibility page](README_cn.md) | **English**
 
 ---
 

@@ -1,38 +1,41 @@
-# Module4：Waypoint 生成与执行监督
+# Module 4: Waypoint Generation and Execution Supervision
 
-> 公开版状态：执行契约和参考实现保留；默认穿帘演示由 `fixed_route_driver` 替代动态路线
-> provider，不访问云端模型。
+> Public status: execution contracts and reference code remain; the default curtain demo uses
+> `fixed_route_driver` instead of a dynamic route provider and does not access cloud models.
 
-正式 Module4 应把 Module3 已验证的目标转换为有序 waypoint，校验输出，并通过
-`/clicked_point` 逐点驱动 NeuPAN。NeuPAN 仍负责局部运动与避障。
+Formal Module 4 converts a goal verified by Module 3 into ordered waypoints, validates the output,
+and drives NeuPAN point by point through `/clicked_point`. NeuPAN remains responsible for local motion
+and obstacle avoidance.
 
-## 主要接口
+## Main Interfaces
 
-| 方向 | 名称 | 类型 |
+| Direction | Name | Type |
 | --- | --- | --- |
-| 输入 | `/semantic_navigation/verification` | `VerificationResult` |
-| 输入 | `/semantic_validation/map` | `nav_msgs/OccupancyGrid` |
-| 输入 | `/semantic_mapping/pushability_map` | `PushabilityMap` |
+| Input | `/semantic_navigation/verification` | `VerificationResult` |
+| Input | `/semantic_validation/map` | `nav_msgs/OccupancyGrid` |
+| Input | `/semantic_mapping/pushability_map` | `PushabilityMap` |
 | Action | `/semantic_navigation/execute` | `ExecuteNavigation` |
-| 输出 | `/semantic_navigation/status` | `NavigationTaskStatus` |
-| 输出 | `/semantic_navigation/readiness` | `SystemReadiness` |
-| 输出 | `/semantic_navigation/execution_route` | `nav_msgs/Path` |
-| 输出 | `/clicked_point` | `PointStamped` |
+| Output | `/semantic_navigation/status` | `NavigationTaskStatus` |
+| Output | `/semantic_navigation/readiness` | `SystemReadiness` |
+| Output | `/semantic_navigation/execution_route` | `nav_msgs/Path` |
+| Output | `/clicked_point` | `PointStamped` |
 
-路线 provider 的输出必须做 schema、边界、frame、free-space、连通性和任务关联校验。
-可视化 polyline 不是碰撞安全证明；局部控制和执行 watchdog 仍不可省略。
+Route-provider output must pass schema, bounds, frame, free-space, connectivity, and task-association
+checks. A visual polyline is not collision-safety evidence; local control and an execution watchdog
+remain required.
 
-## 公开 mock 与正式替换
+## Public Mock and Formal Replacement
 
-公开版固定目标与 living-room 资产配套，并以 TF 距离和稳定时间判定成功。正式替换时保持
-topic/action、QoS、任务去重、抢占、取消、hold goal、超时和终态语义。路线模型可以作为
-独立 adapter 接入，不建议把私有网络调用写入 fixed route mock。
+The public fixed goal matches the living-room assets and declares success using TF distance and a
+stability interval. Formal replacements must preserve topic/action names, QoS, task de-duplication,
+preemption, cancellation, hold-goal, timeout, and terminal-state semantics. A route model may be
+provided as an independent adapter; private network calls do not belong in the fixed-route mock.
 
-provider endpoint、模型、凭据、输出目录和地图参数都是本机适配项。路线图像、point
-adjustment 和 execution audit 可能包含室内布局；默认不写入仓库，正式部署应保存到
-权限受控且有到期策略的外部目录。
+Provider endpoint, model, credentials, output directory, and map parameters are host adaptations.
+Route images, point adjustments, and execution audits may reveal indoor layouts; keep them outside
+the repository in a restricted directory with retention expiry.
 
-## 测试
+## Tests
 
 ```bash
 cd "$SCOUT_WORKSPACE/llmModule"
@@ -41,4 +44,5 @@ colcon test --packages-select llm_module4
 colcon test-result --verbose
 ```
 
-真实 provider 与 Isaac 结果必须单独报告；mock 成功只证明接口和状态机闭环。
+Report formal-provider and Isaac results separately. A mock pass proves only the interface and state
+machine loop.

@@ -23,9 +23,17 @@ scan-filtering and low-speed traversal authorization only when both gates pass;
 rejection, timeout, provider failure, or watchdog expiry retains/restores the full scan and yields a
 conservative avoidance or stop response.
 
-## 图注（中文）
+## Figure Caption (English)
 
-**本文所提出的语义导航与事件触发式障碍物通行框架的数据流。** 自然语言指令首先被转换为结构化语义意图，随后在静态场景图上完成实体落地，并通过确定性验证。只有验证通过的请求才能进入 Module 4 执行桥；该模块将路线候选清洗后通过 FIFO 接口提交给 NeuPAN。执行过程中，同步的 LiDAR--RGB 事件协调器检测当前路径走廊内的障碍物，并并行调用目标验证和可推性评估两条门控链。仅当两条门控均通过时，系统才对被跟踪障碍物授予有时限的激光簇过滤和低速通行权限；拒绝、超时、服务失败或看门狗触发时，系统保留或恢复完整激光扫描，并采用保守绕行或停车策略。
+**Data flow of the proposed semantic navigation and event-triggered obstacle traversal framework.**
+A natural-language instruction is converted into a structured semantic intent, grounded against a
+static scene graph, and checked by deterministic validation. Only a verified request reaches the
+Module 4 execution bridge, which sanitizes route candidates and submits them to NeuPAN through a FIFO
+interface. During execution, a synchronized LiDAR-RGB event coordinator detects obstacles in the
+current path corridor and invokes target verification and pushability assessment in parallel. A
+tracked obstacle receives time-bounded scan filtering and low-speed traversal authorization only when
+both gates pass. Rejection, timeout, provider failure, or watchdog expiry retains or restores the
+full scan and produces a conservative avoidance or stop response.
 
 ## Rendering
 

@@ -14,12 +14,12 @@ Livox SDK2 communication protocol opens to all users. It is the communication pr
 
 **Mid-360(S)**:
 
-* [Mid-360(S) Communication protocol](https://livox-wiki-cn.readthedocs.io/zh_CN/latest/tutorials/new_product/mid360/mid360.html) (中文)
+* [Mid-360(S) Communication protocol](https://livox-wiki-cn.readthedocs.io/zh_CN/latest/tutorials/new_product/mid360/mid360.html) (Chinese)
 * [Mid-360(S) Communication protocol](https://livox-wiki-en.readthedocs.io/en/latest/tutorials/new_product/mid360/mid360.html) (English)
 
 **HAP(TX/T1)**:
 
-* [HAP Communication protocol](<https://github.com/Livox-SDK/Livox-SDK2/wiki/Livox-SDK-Communication-Protocol-HAP>) (中文)
+* [HAP Communication protocol](<https://github.com/Livox-SDK/Livox-SDK2/wiki/Livox-SDK-Communication-Protocol-HAP>) (Chinese)
 * [HAP Communication protocol](<https://github.com/Livox-SDK/Livox-SDK2/wiki/Livox-SDK-Communication-Protocol-HAP(English)>) (English)
 
 
@@ -312,4 +312,3 @@ You can get support from Livox via:
 
 * Send an email to cs@livoxtech.com, appended with detailed description for your problem and your setup;
 * Raise a github issue
-
