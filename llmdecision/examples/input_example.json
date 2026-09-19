@@ -1,0 +1,29 @@
+{
+  "vehicle_state": {
+    "mass": 50,
+    "size": "0.8m×0.5m",
+    "velocity": "0.5m/s"
+  },
+  "robot_interaction_state": {
+    "overall_condition": {
+      "score": 0.92,
+      "level": "good"
+    },
+    "joint_load_condition": {
+      "score": 0.85,
+      "level": "low"
+    },
+    "motion_stability": {
+      "score": 0.88,
+      "level": "stable"
+    },
+    "joint_limit_risk": {
+      "score": 0.05,
+      "level": "low"
+    },
+    "interaction_readiness": {
+      "score": 0.85,
+      "level": "high"
+    }
+  }
+}

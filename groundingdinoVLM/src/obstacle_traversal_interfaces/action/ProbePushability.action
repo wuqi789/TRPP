@@ -1,0 +1,18 @@
+string request_id
+geometry_msgs/Point obstacle_center_map
+sensor_msgs/RegionOfInterest target_roi
+float32 timeout_s
+---
+obstacle_traversal_interfaces/MechanicalAssessment assessment
+---
+uint8 POSITIONING=0
+uint8 PROBING=1
+uint8 RETURNING=2
+uint8 EXTENDING=3
+uint8 SETTLING=4
+uint8 SWEEPING=5
+uint8 VISION=6
+uint8 phase
+float32 progress
+float32 resistance_ratio
+string message

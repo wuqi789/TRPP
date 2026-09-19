@@ -1,0 +1,16 @@
+piper_probe_server:
+  ros__parameters:
+    action_name: /piper/probe_pushability
+    assessment_topic: /obstacle_traversal/mechanical_assessment
+    provider: external
+    adapter_env: SCOUT_MECHANICAL_PROBE_ADAPTER
+
+piper_yolo_obstacle_detector:
+  ros__parameters:
+    image_topic: /isaac/color_image_raw
+    result_topic: /piper/yolo_obstacle_result
+    ready_topic: /piper/yolo_ready
+    provider: external
+    adapter_env: SCOUT_OBSTACLE_DETECTOR_ADAPTER
+    inference_hz: 2.0
+    error_publish_interval_s: 2.0

@@ -1,0 +1,56 @@
+# agx_arm_description — arm_config.yaml
+# 各机械臂型号的默认配置，可在 launch 文件中通过 yaml_param_file 引用
+#
+# 使用方式 (launch.py):
+#   from launch_ros.parameter_descriptions import ParameterFile
+#   params = ParameterFile(
+#       os.path.join(pkg_share, 'config', 'arm_config.yaml'), allow_substs=True
+#   )
+
+# ---------- 通用默认值 ----------
+agx_arm_description:
+  ros__parameters:
+    # 默认机械臂型号
+    default_arm_type: "piper"
+    # 默认末端执行器
+    default_end_effector: "none"
+    # 支持的型号列表（供 GUI / 工具脚本读取）
+    supported_arm_types:
+      - "piper"
+      - "piper_h"
+      - "piper_l"
+      - "piper_x"
+      - "nero"
+      - "revo2"
+    supported_end_effectors:
+      - "none"
+      - "gripper"
+      - "revo2_left"
+      - "revo2_right"
+
+# ---------- 各型号基本信息（仅用于文档/工具，不影响 launch） ----------
+arm_info:
+  piper:
+    display_name: "Piper"
+    dof: 6
+    description: "标准版 6 自由度机械臂"
+  piper_h:
+    display_name: "Piper H"
+    dof: 6
+    description: "高载荷版 Piper"
+  piper_l:
+    display_name: "Piper L"
+    dof: 6
+    description: "轻量版 Piper"
+  piper_x:
+    display_name: "Piper X"
+    dof: 6
+    description: "扩展版 Piper"
+  nero:
+    display_name: "Nero"
+    dof: 7
+    description: "7 自由度冗余机械臂"
+  revo2:
+    display_name: "Revo2 灵巧手"
+    dof: 12
+    description: "多指灵巧手（左/右）"

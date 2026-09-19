@@ -1,0 +1,9 @@
+initial_positions:
+  joint1: 0.0
+  joint2: 1.2
+  joint3: -1.2
+  joint4: 0.0
+  joint5: 0.0
+  joint6: 0.0
+  gripper_joint1: 0.02
+  gripper_joint2: -0.02

@@ -1,0 +1,4 @@
+#!/usr/bin/env python3
+from obstacle_traversal.system_diagnostics import main
+
+main()

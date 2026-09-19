@@ -1,0 +1,6 @@
+string start
+string goal
+---
+bool success
+string[] path
+

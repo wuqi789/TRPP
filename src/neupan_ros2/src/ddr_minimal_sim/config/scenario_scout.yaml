@@ -1,0 +1,49 @@
+simulator:
+  ros__parameters:
+    initial_pose:
+      x: -4.3
+      y: 0.0
+      yaw: 0.0
+    update_frequency: 20.0
+    publish_rate: 20.0
+    enable_noise: false
+    noise_std_v: 0.01
+    noise_std_omega: 0.02
+    vehicle:
+      length: 0.615
+      width: 0.585
+      height: 0.35
+    dynamics:
+      max_linear_velocity: 0.4
+      max_angular_velocity: 0.8
+      max_linear_acceleration: 0.4
+      max_angular_acceleration: 0.8
+    visualization:
+      show_trajectory: true
+      trajectory_length: 500
+
+environment:
+  ros__parameters:
+    map:
+      width: 10.0
+      height: 10.0
+      resolution: 0.05
+      generation_mode: 'file'
+      map_file: 'scout_avoidance.yaml'
+    visualization:
+      obstacle_height: 2.0
+      marker_alpha: 0.8
+
+laser_simulator:
+  ros__parameters:
+    laser:
+      range_min: 0.15
+      range_max: 8.0
+      angle_min: -3.14159
+      angle_max: 3.14159
+      angle_increment: 0.00872665
+      scan_time: 0.1
+      frame_id: 'base_link'
+    noise:
+      enable_noise: true
+      noise_std_dev: 0.01

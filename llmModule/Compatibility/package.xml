@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>semantic_navigation_compatibility</name>
+  <version>0.1.0</version>
+  <description>Bidirectional legacy topic adapters for the canonical semantic navigation interfaces.</description>
+  <maintainer email="maintainer@example.com">Maintainer</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>semantic_navigation_interfaces</depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <exec_depend>llm_module1</exec_depend>
+  <exec_depend>llm_module2</exec_depend>
+  <exec_depend>llm_module3</exec_depend>
+  <exec_depend>llm_module4</exec_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

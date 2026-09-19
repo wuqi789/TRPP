@@ -1,0 +1,2 @@
+isaacsim-assets/InteriorAgent/kujiale_0021/Meshes/bed_0000.usd filter=lfs diff=lfs merge=lfs -text
+src/agx_arm_sim/agx_arm_description/urdf/USD/nero_gripper_d435/configuration/nero_gripper_d435_base.usd filter=lfs diff=lfs merge=lfs -text

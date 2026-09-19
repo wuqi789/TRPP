@@ -1,0 +1,1132 @@
+# Candidate only: isolated from both project workspaces and not loaded by any launch file.
+# Review metadata, exclusions, poses, and relations before integration.
+metadata:
+  status: candidate_for_manual_review
+  map_kind: static_simulation_semantic_scene_graph_seed
+  source_usd: ../../../isaacsim-assets/InteriorAgent/kujiale_0021/kujiale_0021.usda
+  source_rooms: ../../../isaacsim-assets/InteriorAgent/kujiale_0021/rooms.json
+  source_scene: InteriorAgent kujiale_0021 full-room mode
+  stored_coordinate_frame: InteriorAgent USD world
+  module2_output_frame: odom
+  navigation_origin_id: jackal_robot
+  bound_launch_defaults:
+    start_x: 7.7
+    start_y: -4.0
+    start_yaw: 1.0
+  robot_clearance:
+    robot_radius: 0.333
+    safety_margin: 0.1
+    required_clearance: 0.433
+    grid_resolution: 0.05
+  relation_rules:
+    inside: source room membership
+    connected: architectural room-door topology; not a traversability promise
+    near: symmetric, same-room object-center distance <= 1.5 m
+  limitations:
+  - Not generated from semantic_mapper runtime observations.
+  - Not a real-robot environment map.
+  - Door collision proxies may prevent traversal despite connected relations.
+  - Regenerate if the standard launch start pose or scene asset changes.
+  - Not loaded by any launch file until explicitly reviewed and integrated.
+  excluded_prims:
+  - source_prim: /Root/Meshes/kitchen_753/basin_0000
+    category: sink
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/kitchen_753/cabinet_0009
+    category: cabinet
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/bathroom_1361/closestool_0000
+    category: toilet
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/bathroom_1361/shelf_0000
+    category: shelf
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/livingroom_377/television_0000
+    category: television
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/livingroom_377/sofa_0000
+    category: sofa
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/bedroom_4089/television_0001
+    category: television
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/bedroom_4089/cabinet_0001
+    category: cabinet
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/bedroom_4089/cabinet_0002
+    category: cabinet
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/bedroom_4089/cabinet_0003
+    category: cabinet
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/bedroom_4089/cabinet_0007
+    category: cabinet
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/balcony_117/table_0000
+    category: table
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  - source_prim: /Root/Meshes/balcony_117/table_0001
+    category: table
+    reason: no_cardinal_approach_pose_with_0.433m_clearance
+  counts:
+    rooms: 5
+    objects_including_robot: 18
+    waypoints: 6
+    doors: 5
+    relations: 52
+    excluded_prims: 13
+ontology:
+  scout_mini:
+    aliases:
+    - scout mini
+    - scout robot
+    - robot
+    - 机器人
+    - 小车
+  living_room:
+    aliases:
+    - living room
+    - 客厅
+  bedroom:
+    aliases:
+    - bed room
+    - 卧室
+  balcony:
+    aliases:
+    - terrace
+    - 阳台
+  kitchen:
+    aliases:
+    - cooking area
+    - 厨房
+  bathroom:
+    aliases:
+    - washroom
+    - 卫生间
+  bed:
+    aliases:
+    - 床
+    - 床铺
+  sofa:
+    aliases:
+    - couch
+    - 沙发
+  dining_table:
+    aliases:
+    - dining table
+    - 餐桌
+  chair:
+    aliases:
+    - seat chair
+    - 椅子
+  table:
+    aliases:
+    - side table
+    - 桌子
+  cabinet:
+    aliases:
+    - cupboard
+    - 柜子
+  refrigerator:
+    aliases:
+    - fridge
+    - 冰箱
+  sink:
+    aliases:
+    - basin
+    - 水槽
+    - 洗手池
+  toilet:
+    aliases:
+    - closestool
+    - 马桶
+  shelf:
+    aliases:
+    - rack
+    - 搁架
+  television:
+    aliases:
+    - tv
+    - 电视
+  doorway:
+    aliases:
+    - door
+    - 门
+    - 门口
+  room_anchor:
+    aliases:
+    - room waypoint
+    - 房间航点
+  apartment_entrance:
+    aliases:
+    - entrance
+    - entry
+    - 公寓入口
+rooms:
+- id: living_room
+  type: room
+  name: living_room
+  position:
+    x: 7.6
+    y: -0.15
+    theta: 0.0
+  properties:
+    source: rooms.json
+    source_room_type: living room
+    source_prim: /Root/Meshes/livingroom_377
+    position_semantics: maximum_clearance_anchor
+    anchor_clearance: 1.1323
+    geometric_centroid:
+    - 7.0552
+    - -1.6552
+    polygon:
+    - - 8.631
+      - 0.9423
+    - - 8.631
+      - 2.1375
+    - - 7.224
+      - 2.1375
+    - - 7.224
+      - 0.9423
+    - - 2.5123
+      - 0.9423
+    - - 2.5123
+      - -4.4725
+    - - 11.538
+      - -4.4725
+    - - 11.538
+      - -2.5708
+    - - 11.538
+      - 0.9423
+- id: bedroom
+  type: room
+  name: bedroom
+  position:
+    x: 3.25
+    y: 1.95
+    theta: 0.0
+  properties:
+    source: rooms.json
+    source_room_type: bedroom
+    source_prim: /Root/Meshes/bedroom_4089
+    position_semantics: maximum_clearance_anchor
+    anchor_clearance: 0.5964
+    geometric_centroid:
+    - 4.7481
+    - 2.8549
+    polygon:
+    - - 6.984
+      - 1.1823
+    - - 6.984
+      - 2.2575
+    - - 6.984
+      - 4.5275
+    - - 2.5123
+      - 4.5275
+    - - 2.5123
+      - 1.1823
+- id: balcony
+  type: room
+  name: balcony
+  position:
+    x: 1.1
+    y: -2.7
+    theta: 0.0
+  properties:
+    source: rooms.json
+    source_room_type: balcony
+    source_prim: /Root/Meshes/balcony_117
+    position_semantics: maximum_clearance_anchor
+    anchor_clearance: 0.8601
+    geometric_centroid:
+    - 1.1463
+    - -1.7651
+    polygon:
+    - - 0.0203
+      - 0.9423
+    - - 0.0203
+      - -4.4725
+    - - 2.2723
+      - -4.4725
+    - - 2.2723
+      - 0.9423
+- id: kitchen
+  type: room
+  name: kitchen
+  position:
+    x: 12.8
+    y: -1.9
+    theta: 0.0
+  properties:
+    source: rooms.json
+    source_room_type: kitchen
+    source_prim: /Root/Meshes/kitchen_753
+    position_semantics: maximum_clearance_anchor
+    anchor_clearance: 0.5507
+    geometric_centroid:
+    - 12.9734
+    - -0.7543
+    polygon:
+    - - 11.778
+      - 0.9423
+    - - 11.778
+      - -2.4508
+    - - 14.1687
+      - -2.4508
+    - - 14.1687
+      - 0.9423
+- id: bathroom
+  type: room
+  name: bathroom
+  position:
+    x: 13.05
+    y: -3.6
+    theta: 0.0
+  properties:
+    source: rooms.json
+    source_room_type: bathroom
+    source_prim: /Root/Meshes/bathroom_1361
+    position_semantics: maximum_clearance_anchor
+    anchor_clearance: 0.8607
+    geometric_centroid:
+    - 13.6004
+    - -3.5816
+    polygon:
+    - - 15.4227
+      - -4.4725
+    - - 15.4227
+      - -2.6908
+    - - 14.2887
+      - -2.6908
+    - - 11.778
+      - -2.6908
+    - - 11.778
+      - -4.4725
+objects:
+- id: jackal_robot
+  type: object
+  name: scout_mini
+  position:
+    x: 7.7
+    y: -4.0
+    theta: 1.0
+  properties:
+    actual_model: Scout Mini
+    compatibility_id: Module2 currently expects jackal_robot
+    dynamic: true
+    navigation_origin: true
+    position_semantics: standard_launch_start_pose
+- id: kitchen_fridge_0000
+  type: object
+  name: refrigerator
+  position:
+    x: 12.9605
+    y: -1.8822
+    theta: 0.0
+  properties:
+    room: kitchen
+    source_prim: /Root/Meshes/kitchen_753/fridge_0000
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.5685
+    object_center:
+    - 13.7811
+    - -1.8822
+    - 0.9244
+    object_yaw: -1.74
+    aabb_min:
+    - 13.3935
+    - -2.4623
+    - -0.0099
+    aabb_max:
+    - 14.1687
+    - -1.302
+    - 1.8587
+    footprint_radius: 0.6977
+- id: bathroom_basin_0001
+  type: object
+  name: sink
+  position:
+    x: 12.4018
+    y: -3.5573
+    theta: -1.5708
+  properties:
+    room: bathroom
+    source_prim: /Root/Meshes/bathroom_1361/basin_0001
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.6217
+    object_center:
+    - 12.4018
+    - -4.2265
+    - 0.932
+    object_yaw: -0.0
+    aabb_min:
+    - 11.7776
+    - -4.4627
+    - 0.8766
+    aabb_max:
+    - 13.026
+    - -3.9903
+    - 0.9874
+    footprint_radius: 0.6674
+- id: bathroom_cabinet_0005
+  type: object
+  name: cabinet
+  position:
+    x: 12.4024
+    y: -3.9141
+    theta: -1.5708
+  properties:
+    room: bathroom
+    source_prim: /Root/Meshes/bathroom_1361/cabinet_0005
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.5466
+    object_center:
+    - 12.4024
+    - -4.4051
+    - 1.5803
+    object_yaw: -0.0
+    aabb_min:
+    - 11.9389
+    - -4.463
+    - 1.2694
+    aabb_max:
+    - 12.8659
+    - -4.3471
+    - 1.8912
+    footprint_radius: 0.4671
+- id: bathroom_cabinet_0006
+  type: object
+  name: cabinet
+  position:
+    x: 12.4023
+    y: -3.5555
+    theta: -1.5708
+  properties:
+    room: bathroom
+    source_prim: /Root/Meshes/bathroom_1361/cabinet_0006
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.6222
+    object_center:
+    - 12.4023
+    - -4.2258
+    - 0.6819
+    object_yaw: -0.0
+    aabb_min:
+    - 11.7843
+    - -4.4631
+    - 0.3996
+    aabb_max:
+    - 13.0202
+    - -3.9885
+    - 0.9642
+    footprint_radius: 0.662
+- id: living_room_cabinet_0000
+  type: object
+  name: cabinet
+  position:
+    x: 4.8332
+    y: 0.1029
+    theta: 1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/cabinet_0000
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.8122
+    object_center:
+    - 4.8332
+    - 0.742
+    - 0.2626
+    object_yaw: 0.0
+    aabb_min:
+    - 3.6513
+    - 0.5359
+    - -0.0
+    aabb_max:
+    - 6.015
+    - 0.9481
+    - 0.5251
+    footprint_radius: 1.1997
+- id: living_room_cabinet_0004
+  type: object
+  name: cabinet
+  position:
+    x: 10.7975
+    y: -3.6885
+    theta: -1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/cabinet_0004
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.7287
+    object_center:
+    - 10.7975
+    - -4.297
+    - 1.1889
+    object_yaw: 3.1416
+    aabb_min:
+    - 10.0568
+    - -4.4725
+    - -0.0
+    aabb_max:
+    - 11.5381
+    - -4.1215
+    - 2.3778
+    footprint_radius: 0.7612
+- id: living_room_cabinet_0008
+  type: object
+  name: cabinet
+  position:
+    x: 10.0828
+    y: 0.1926
+    theta: 1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/cabinet_0008
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.7192
+    object_center:
+    - 10.0828
+    - 0.7839
+    - 1.269
+    object_yaw: 0.0
+    aabb_min:
+    - 8.6275
+    - 0.6256
+    - -0.0007
+    aabb_max:
+    - 11.5381
+    - 0.9422
+    - 2.5386
+    footprint_radius: 1.4639
+- id: living_room_dining_table_0000
+  type: object
+  name: dining_table
+  position:
+    x: 9.8239
+    y: -2.8683
+    theta: 1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/dining_table_0000
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.8577
+    object_center:
+    - 9.8239
+    - -1.5201
+    - 0.4213
+    object_yaw: 1.6385
+    aabb_min:
+    - 9.3211
+    - -2.4353
+    - -0.0001
+    aabb_max:
+    - 10.3267
+    - -0.6048
+    - 0.8428
+    footprint_radius: 1.0443
+- id: living_room_chair_0001
+  type: object
+  name: chair
+  position:
+    x: 8.1818
+    y: -1.8995
+    theta: 0.0
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/chair_0001
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.7351
+    object_center:
+    - 8.929
+    - -1.8995
+    - 0.4547
+    object_yaw: -3.1416
+    aabb_min:
+    - 8.6148
+    - -2.2168
+    - -0.0004
+    aabb_max:
+    - 9.2431
+    - -1.5823
+    - 0.9098
+    footprint_radius: 0.4465
+- id: living_room_chair_0002
+  type: object
+  name: chair
+  position:
+    x: 10.7189
+    y: -0.3121
+    theta: -1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/chair_0002
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.4894
+    object_center:
+    - 10.7189
+    - -1.0623
+    - 0.4547
+    object_yaw: 0.0
+    aabb_min:
+    - 10.4047
+    - -1.3796
+    - -0.0004
+    aabb_max:
+    - 11.0331
+    - -0.7451
+    - 0.9098
+    footprint_radius: 0.4465
+- id: living_room_chair_0003
+  type: object
+  name: chair
+  position:
+    x: 10.7189
+    y: -2.6701
+    theta: 1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/chair_0003
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.4571
+    object_center:
+    - 10.7189
+    - -1.9198
+    - 0.4547
+    object_yaw: 0.0
+    aabb_min:
+    - 10.4047
+    - -2.2371
+    - -0.0004
+    aabb_max:
+    - 11.0331
+    - -1.6026
+    - 0.9098
+    footprint_radius: 0.4465
+- id: living_room_chair_0004
+  type: object
+  name: chair
+  position:
+    x: 8.1818
+    y: -0.9882
+    theta: 0.0
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/chair_0004
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.7351
+    object_center:
+    - 8.929
+    - -0.9882
+    - 0.4547
+    object_yaw: -3.1416
+    aabb_min:
+    - 8.6148
+    - -1.3054
+    - -0.0004
+    aabb_max:
+    - 9.2431
+    - -0.6709
+    - 0.9098
+    footprint_radius: 0.4465
+- id: living_room_table_0002
+  type: object
+  name: table
+  position:
+    x: 5.1461
+    y: -0.9851
+    theta: -1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/table_0002
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 1.1407
+    object_center:
+    - 5.1461
+    - -2.005
+    - 0.1965
+    object_yaw: 0.0
+    aabb_min:
+    - 4.5592
+    - -2.5919
+    - -0.001
+    aabb_max:
+    - 5.733
+    - -1.4181
+    - 0.3939
+    footprint_radius: 0.83
+- id: living_room_table_0003
+  type: object
+  name: table
+  position:
+    x: 7.711
+    y: -3.6382
+    theta: 3.1416
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/table_0003
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.7206
+    object_center:
+    - 7.0008
+    - -3.6382
+    - 0.2486
+    object_yaw: 0.0
+    aabb_min:
+    - 6.7236
+    - -3.9153
+    - -0.0001
+    aabb_max:
+    - 7.278
+    - -3.361
+    - 0.4973
+    footprint_radius: 0.392
+- id: living_room_sofa_0001
+  type: object
+  name: sofa
+  position:
+    x: 6.74
+    y: -0.8111
+    theta: -1.5708
+  properties:
+    room: living_room
+    source_prim: /Root/Meshes/livingroom_377/sofa_0001
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 1.1758
+    object_center:
+    - 6.74
+    - -2.14
+    - 0.3253
+    object_yaw: 0.0
+    aabb_min:
+    - 6.257
+    - -3.0359
+    - -0.0068
+    aabb_max:
+    - 7.223
+    - -1.2441
+    - 0.6574
+    footprint_radius: 1.0178
+- id: bedroom_bed_0000
+  type: object
+  name: bed
+  position:
+    x: 3.2112
+    y: 3.47
+    theta: 0.0
+  properties:
+    room: bedroom
+    source_prim: /Root/Meshes/bedroom_4089/bed_0000
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.5243
+    object_center:
+    - 4.59
+    - 3.47
+    - 0.5
+    object_yaw: 0.0
+    aabb_min:
+    - 3.6442
+    - 2.4249
+    - 0.0189
+    aabb_max:
+    - 5.5358
+    - 4.5151
+    - 0.9811
+    footprint_radius: 1.4095
+- id: balcony_chair_0000
+  type: object
+  name: chair
+  position:
+    x: 1.3069
+    y: -2.2441
+    theta: 1.5708
+  properties:
+    room: balcony
+    source_prim: /Root/Meshes/balcony_117/chair_0000
+    position_semantics: collision_free_approach_pose
+    approach_clearance: 0.9634
+    object_center:
+    - 1.3069
+    - -1.2345
+    - 0.4349
+    object_yaw: -2.6907
+    aabb_min:
+    - 0.772
+    - -1.8111
+    - -0.0003
+    aabb_max:
+    - 1.8418
+    - -0.6578
+    - 0.8701
+    footprint_radius: 0.7865
+waypoints:
+- id: living_room_anchor
+  type: waypoint
+  name: room_anchor
+  position:
+    x: 7.6
+    y: -0.15
+    theta: 0.0
+  properties:
+    room: living_room
+    role: review_navigation_anchor
+    clearance: 1.1323
+- id: bedroom_anchor
+  type: waypoint
+  name: room_anchor
+  position:
+    x: 3.25
+    y: 1.95
+    theta: 0.0
+  properties:
+    room: bedroom
+    role: review_navigation_anchor
+    clearance: 0.5964
+- id: balcony_anchor
+  type: waypoint
+  name: room_anchor
+  position:
+    x: 1.1
+    y: -2.7
+    theta: 0.0
+  properties:
+    room: balcony
+    role: review_navigation_anchor
+    clearance: 0.8601
+- id: kitchen_anchor
+  type: waypoint
+  name: room_anchor
+  position:
+    x: 12.8
+    y: -1.9
+    theta: 0.0
+  properties:
+    room: kitchen
+    role: review_navigation_anchor
+    clearance: 0.5507
+- id: bathroom_anchor
+  type: waypoint
+  name: room_anchor
+  position:
+    x: 13.05
+    y: -3.6
+    theta: 0.0
+  properties:
+    room: bathroom
+    role: review_navigation_anchor
+    clearance: 0.8607
+- id: apartment_entrance
+  type: waypoint
+  name: apartment_entrance
+  position:
+    x: 3.0
+    y: -1.75
+    theta: -3.1288
+  properties:
+    room: living_room
+    role: safe_inside_entrance_approach
+    clearance: 0.4697
+    associated_door: doorway_0002
+doors:
+- id: doorway_0000
+  type: door
+  name: doorway
+  position:
+    x: 11.6581
+    y: -3.2042
+    theta: 0.0
+  properties:
+    source_prim: /Root/Meshes/other/doorsill_0000
+    position_semantics: portal_center
+    adjacent_spaces:
+    - living_room
+    - bathroom
+    collision_proxy_state: curtain_present
+    architectural_connectivity_only: true
+- id: doorway_0001
+  type: door
+  name: doorway
+  position:
+    x: 9.4
+    y: -4.5925
+    theta: 0.0
+  properties:
+    source_prim: /Root/Meshes/other/doorsill_0001
+    position_semantics: portal_center
+    adjacent_spaces:
+    - living_room
+    - kitchen
+    collision_proxy_state: door_proxy_present
+    architectural_connectivity_only: true
+- id: doorway_0002
+  type: door
+  name: doorway
+  position:
+    x: 2.3923
+    y: -1.7577
+    theta: 1.5708
+  properties:
+    source_prim: /Root/Meshes/other/doorsill_0002
+    position_semantics: portal_center
+    adjacent_spaces:
+    - living_room
+    - outside_apartment
+    collision_proxy_state: door_proxy_present
+    architectural_connectivity_only: true
+- id: doorway_0003
+  type: door
+  name: doorway
+  position:
+    x: 11.658
+    y: -0.9008
+    theta: 0.0
+  properties:
+    source_prim: /Root/Meshes/other/doorsill_0003
+    position_semantics: portal_center
+    adjacent_spaces:
+    - living_room
+    - balcony
+    collision_proxy_state: door_proxy_present
+    architectural_connectivity_only: true
+- id: doorway_0004
+  type: door
+  name: doorway
+  position:
+    x: 7.104
+    y: 1.7375
+    theta: 0.0
+  properties:
+    source_prim: /Root/Meshes/other/doorsill_0004
+    position_semantics: portal_center
+    adjacent_spaces:
+    - living_room
+    - bedroom
+    collision_proxy_state: door_proxy_present
+    architectural_connectivity_only: true
+corridors: []
+relations:
+- source: jackal_robot
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: kitchen_fridge_0000
+  target: kitchen
+  relation: inside
+  confidence: 1.0
+- source: bathroom_basin_0001
+  target: bathroom
+  relation: inside
+  confidence: 1.0
+- source: bathroom_cabinet_0005
+  target: bathroom
+  relation: inside
+  confidence: 1.0
+- source: bathroom_cabinet_0006
+  target: bathroom
+  relation: inside
+  confidence: 1.0
+- source: living_room_cabinet_0000
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_cabinet_0004
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_cabinet_0008
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_dining_table_0000
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_chair_0001
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_chair_0002
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_chair_0003
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_chair_0004
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_table_0002
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_table_0003
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room_sofa_0001
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: bedroom_bed_0000
+  target: bedroom
+  relation: inside
+  confidence: 1.0
+- source: balcony_chair_0000
+  target: balcony
+  relation: inside
+  confidence: 1.0
+- source: living_room_anchor
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: bedroom_anchor
+  target: bedroom
+  relation: inside
+  confidence: 1.0
+- source: balcony_anchor
+  target: balcony
+  relation: inside
+  confidence: 1.0
+- source: kitchen_anchor
+  target: kitchen
+  relation: inside
+  confidence: 1.0
+- source: bathroom_anchor
+  target: bathroom
+  relation: inside
+  confidence: 1.0
+- source: apartment_entrance
+  target: living_room
+  relation: inside
+  confidence: 1.0
+- source: living_room
+  target: doorway_0000
+  relation: connected
+  confidence: 1.0
+- source: doorway_0000
+  target: bathroom
+  relation: connected
+  confidence: 1.0
+- source: living_room
+  target: doorway_0001
+  relation: connected
+  confidence: 1.0
+- source: doorway_0001
+  target: kitchen
+  relation: connected
+  confidence: 1.0
+- source: living_room
+  target: doorway_0002
+  relation: connected
+  confidence: 1.0
+- source: living_room
+  target: doorway_0003
+  relation: connected
+  confidence: 1.0
+- source: doorway_0003
+  target: balcony
+  relation: connected
+  confidence: 1.0
+- source: living_room
+  target: doorway_0004
+  relation: connected
+  confidence: 1.0
+- source: doorway_0004
+  target: bedroom
+  relation: connected
+  confidence: 1.0
+- source: doorway_0002
+  target: apartment_entrance
+  relation: connected
+  confidence: 1.0
+- source: bathroom_basin_0001
+  target: bathroom_cabinet_0005
+  relation: near
+  distance: 0.1785
+  confidence: 1.0
+- source: bathroom_cabinet_0005
+  target: bathroom_basin_0001
+  relation: near
+  distance: 0.1785
+  confidence: 1.0
+- source: bathroom_basin_0001
+  target: bathroom_cabinet_0006
+  relation: near
+  distance: 0.0009
+  confidence: 1.0
+- source: bathroom_cabinet_0006
+  target: bathroom_basin_0001
+  relation: near
+  distance: 0.0009
+  confidence: 1.0
+- source: bathroom_cabinet_0005
+  target: bathroom_cabinet_0006
+  relation: near
+  distance: 0.1793
+  confidence: 1.0
+- source: bathroom_cabinet_0006
+  target: bathroom_cabinet_0005
+  relation: near
+  distance: 0.1793
+  confidence: 1.0
+- source: living_room_dining_table_0000
+  target: living_room_chair_0001
+  relation: near
+  distance: 0.9721
+  confidence: 1.0
+- source: living_room_chair_0001
+  target: living_room_dining_table_0000
+  relation: near
+  distance: 0.9721
+  confidence: 1.0
+- source: living_room_dining_table_0000
+  target: living_room_chair_0002
+  relation: near
+  distance: 1.0052
+  confidence: 1.0
+- source: living_room_chair_0002
+  target: living_room_dining_table_0000
+  relation: near
+  distance: 1.0052
+  confidence: 1.0
+- source: living_room_dining_table_0000
+  target: living_room_chair_0003
+  relation: near
+  distance: 0.9802
+  confidence: 1.0
+- source: living_room_chair_0003
+  target: living_room_dining_table_0000
+  relation: near
+  distance: 0.9802
+  confidence: 1.0
+- source: living_room_dining_table_0000
+  target: living_room_chair_0004
+  relation: near
+  distance: 1.0411
+  confidence: 1.0
+- source: living_room_chair_0004
+  target: living_room_dining_table_0000
+  relation: near
+  distance: 1.0411
+  confidence: 1.0
+- source: living_room_chair_0001
+  target: living_room_chair_0004
+  relation: near
+  distance: 0.9114
+  confidence: 1.0
+- source: living_room_chair_0004
+  target: living_room_chair_0001
+  relation: near
+  distance: 0.9114
+  confidence: 1.0
+- source: living_room_chair_0002
+  target: living_room_chair_0003
+  relation: near
+  distance: 0.8575
+  confidence: 1.0
+- source: living_room_chair_0003
+  target: living_room_chair_0002
+  relation: near
+  distance: 0.8575
+  confidence: 1.0

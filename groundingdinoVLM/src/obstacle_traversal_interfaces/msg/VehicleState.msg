@@ -1,0 +1,6 @@
+float32 mass_kg
+float32 payload_kg
+float32 battery_fraction
+float32 maximum_push_force_n
+float32 footprint_width_m
+float32 footprint_length_m

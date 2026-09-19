@@ -1,0 +1,10 @@
+.venv/
+.venv-build.*/
+.deps/
+models/
+build/
+install/
+log/
+.pytest_cache/
+__pycache__/
+*.pyc

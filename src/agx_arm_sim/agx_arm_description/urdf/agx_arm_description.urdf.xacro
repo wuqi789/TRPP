@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<!--
+  agx_arm_description.urdf.xacro
+  ================================
+  AgileX 系列机械臂统一入口 Xacro 文件。
+  通过 arm_type 和 end_effector 两个参数路由到对应的子 URDF/Xacro 文件。
+
+  参数说明:
+    arm_type          : piper | piper_h | piper_l | piper_x | nero | revo2
+                        默认: piper
+    end_effector      : none | gripper | revo2_left | revo2_right
+                        默认: none
+                        （当 arm_type=revo2 时此参数无效，改用 revo2_side）
+    revo2_side        : left | right
+                        默认: right
+                        （仅当 arm_type=revo2 时生效）
+    with_camera_stand : true | false
+                        默认: false，是否加载相机支架（固定挂在 gripper_base 上）
+    with_camera       : true | false
+                        默认: false，是否加载 RealSense D435 相机
+                        注意：with_camera:=true 时必须同时设置 with_camera_stand:=true，
+                        相机的 d435_camera_link 挂在 camera_stand_link 顶端
+
+  使用示例（命令行直接解析）:
+    xacro agx_arm_description.urdf.xacro arm_type:=piper end_effector:=gripper
+    xacro agx_arm_description.urdf.xacro arm_type:=piper with_camera_stand:=true with_camera:=true
+    xacro agx_arm_description.urdf.xacro arm_type:=nero end_effector:=revo2_right
+    xacro agx_arm_description.urdf.xacro arm_type:=revo2 revo2_side:=left
+-->
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="agx_arm">
+
+  <!-- ================================================================
+       参数声明
+       ================================================================ -->
+  <xacro:arg name="arm_type"          default="piper"/>
+  <xacro:arg name="end_effector"      default="none"/>
+  <xacro:arg name="revo2_side"        default="right"/>
+  <!-- 是否加载相机支架，默认 false -->
+  <xacro:arg name="with_camera_stand" default="false"/>
+  <!-- 是否加载 RealSense D435，默认 false；启用时须同时设 with_camera_stand:=true -->
+  <xacro:arg name="with_camera"       default="false"/>
+
+  <!-- 将参数转为 xacro 属性，方便条件判断 -->
+  <xacro:property name="arm"            value="$(arg arm_type)"/>
+  <xacro:property name="ee"             value="$(arg end_effector)"/>
+  <xacro:property name="side"           value="$(arg revo2_side)"/>
+  <xacro:property name="with_cam_stand" value="$(arg with_camera_stand)"/>
+  <xacro:property name="with_cam"       value="$(arg with_camera)"/>
+
+  <xacro:property name="urdf_root"   value="$(find agx_arm_description)/agx_arm_urdf"/>
+  <xacro:property name="meshes_root" value="$(find agx_arm_description)/meshes"/>
+
+  <!-- ================================================================
+       piper
+       ================================================================ -->
+  <xacro:if value="${arm == 'piper'}">
+
+    <xacro:if value="${ee == 'none'}">
+      <xacro:include filename="${urdf_root}/piper/urdf/piper_description.urdf"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'gripper'}">
+      <xacro:include filename="${urdf_root}/piper/urdf/piper_with_gripper_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_left'}">
+      <xacro:include filename="${urdf_root}/piper/urdf/piper_with_left_revo2_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_right'}">
+      <xacro:include filename="${urdf_root}/piper/urdf/piper_with_right_revo2_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'teach'}">
+      <xacro:include filename="${urdf_root}/piper/urdf/piper_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/teach_pendant.urdf.xacro"/>
+
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="link6"/>
+        <child link="gripper_base"/>
+    </joint>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'pika'}">
+      <xacro:include filename="${urdf_root}/piper/urdf/piper_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/pika2_gripper.urdf"/>
+
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="link6"/>
+        <child link="gripper_base_link"/>
+    </joint>
+
+    </xacro:if>
+
+
+  </xacro:if>
+
+  <!-- ================================================================
+       piper_h
+       ================================================================ -->
+  <xacro:if value="${arm == 'piper_h'}">
+
+    <xacro:if value="${ee == 'none'}">
+      <xacro:include filename="${urdf_root}/piper_h/urdf/piper_h_description.urdf"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'gripper'}">
+      <xacro:include filename="${urdf_root}/piper_h/urdf/piper_h_with_gripper_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_left'}">
+      <xacro:include filename="${urdf_root}/piper_h/urdf/piper_h_with_left_revo2_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_right'}">
+      <xacro:include filename="${urdf_root}/piper_h/urdf/piper_h_with_right_revo2_description.xacro"/>
+    </xacro:if>
+    <xacro:if value="${ee == 'teach'}">
+      <xacro:include filename="${urdf_root}/piper_h/urdf/piper_h_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/teach_pendant.urdf.xacro"/>
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="link6"/>
+        <child link="gripper_base"/>
+    </joint>
+
+    </xacro:if>
+
+    <xacro:if value="${ee == 'pika'}">
+      <xacro:include filename="${urdf_root}/piper_h/urdf/piper_h_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/pika2_gripper.urdf"/>
+
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="link6"/>
+        <child link="gripper_base_link"/>
+    </joint>
+
+    </xacro:if>
+
+  </xacro:if>
+
+  <!-- ================================================================
+       piper_l
+       ================================================================ -->
+  <xacro:if value="${arm == 'piper_l'}">
+
+    <xacro:if value="${ee == 'none'}">
+      <xacro:include filename="${urdf_root}/piper_l/urdf/piper_l_description.urdf"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'gripper'}">
+      <xacro:include filename="${urdf_root}/piper_l/urdf/piper_l_with_gripper_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_left'}">
+      <xacro:include filename="${urdf_root}/piper_l/urdf/piper_l_with_left_revo2_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_right'}">
+      <xacro:include filename="${urdf_root}/piper_l/urdf/piper_l_with_right_revo2_description.xacro"/>
+    </xacro:if>
+    <xacro:if value="${ee == 'teach'}">
+      <xacro:include filename="${urdf_root}/piper_l/urdf/piper_l_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/teach_pendant.urdf.xacro"/>
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="link6"/>
+        <child link="gripper_base"/>
+    </joint>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'pika'}">
+      <xacro:include filename="${urdf_root}/piper_l/urdf/piper_l_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/pika2_gripper.urdf"/>
+
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="link6"/>
+        <child link="gripper_base_link"/>
+    </joint>
+
+    </xacro:if>
+
+  </xacro:if>
+
+  <!-- ================================================================
+       piper_x
+       ================================================================ -->
+  <xacro:if value="${arm == 'piper_x'}">
+
+    <xacro:if value="${ee == 'none'}">
+      <xacro:include filename="${urdf_root}/piper_x/urdf/piper_x_description.urdf"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'gripper'}">
+      <xacro:include filename="${urdf_root}/piper_x/urdf/piper_x_with_gripper_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_left'}">
+      <xacro:include filename="${urdf_root}/piper_x/urdf/piper_x_with_left_revo2_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_right'}">
+      <xacro:include filename="${urdf_root}/piper_x/urdf/piper_x_with_right_revo2_description.xacro"/>
+    </xacro:if>
+    <xacro:if value="${ee == 'teach'}">
+      <xacro:include filename="${urdf_root}/piper_x/urdf/piper_x_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/teach_pendant.urdf.xacro"/>
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 1.5707963"/>
+        <parent link="link6"/>
+        <child link="gripper_base"/>
+    </joint>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'pika'}">
+      <xacro:include filename="${urdf_root}/piper_x/urdf/piper_x_description.urdf"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/pika2_gripper.urdf"/>
+
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 1.5707963"/>
+        <parent link="link6"/>
+        <child link="gripper_base_link"/>
+    </joint>
+
+    </xacro:if>
+
+  </xacro:if>
+
+  <!-- ================================================================
+       nero
+       ================================================================ -->
+  <xacro:if value="${arm == 'nero'}">
+
+    <xacro:if value="${ee == 'none'}">
+      <xacro:include filename="${urdf_root}/nero/urdf/nero_description.urdf"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'gripper'}">
+      <xacro:include filename="${urdf_root}/nero/urdf/nero_with_gripper_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_left'}">
+      <xacro:include filename="${urdf_root}/nero/urdf/nero_with_left_revo2_description.xacro"/>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'revo2_right'}">
+      <xacro:include filename="${urdf_root}/nero/urdf/nero_with_right_revo2_description.xacro"/>
+    </xacro:if>
+    <xacro:if value="${ee == 'teach'}">
+      <xacro:include filename="$(find agx_arm_description)/urdf/teach_pendant.urdf.xacro"/>
+      <xacro:include filename="$(find agx_arm_description)/agx_arm_urdf/nero/urdf/nero_with_gripper_flange_description.xacro"/>
+      <joint name="gripper_base_joint" type="fixed">
+          <origin xyz="0 0 0.0055" rpy="0 0 0"/>
+          <parent link="gripper_flange"/>
+          <child link="gripper_base"/>
+      </joint>
+    </xacro:if>
+
+    <xacro:if value="${ee == 'pika'}">
+      <xacro:include filename="$(find agx_arm_description)/agx_arm_urdf/nero/urdf/nero_with_gripper_flange_description.xacro"/>
+      <xacro:include filename="$(find agx_arm_description)/urdf/pika2_gripper.urdf"/>
+
+    <joint name="gripper_base_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <parent link="gripper_flange"/>
+        <child link="gripper_base_link"/>
+    </joint>
+
+    </xacro:if>
+
+  </xacro:if>
+
+  <!-- ================================================================
+       revo2 灵巧手（独立型号，无末端扩展，仅区分左右手）
+       ================================================================ -->
+  <xacro:if value="${arm == 'revo2'}">
+
+    <xacro:if value="${side == 'left'}">
+      <xacro:include filename="${urdf_root}/revo2/urdf/revo2_left_hand.urdf"/>
+    </xacro:if>
+
+    <xacro:if value="${side == 'right'}">
+      <xacro:include filename="${urdf_root}/revo2/urdf/revo2_right_hand.urdf"/>
+    </xacro:if>
+
+  </xacro:if>
+
+  <!-- ================================================================
+       相机支架（camera_stand_link）
+       with_camera_stand:=true 时加载
+       固定挂在 gripper_base 上
+       ================================================================ -->
+  <xacro:if value="${with_cam_stand}">
+    <link name="camera_stand_link">
+      <inertial>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="0.0002" ixy="0.0" ixz="0.0"
+                               iyy="0.0002" iyz="0.0"
+                                            izz="0.0001"/>
+      </inertial>
+      <visual>
+        <origin rpy="-1.57 0 1.57" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://agx_arm_description/meshes/realsense_mid_stand.dae"/>
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>
+          <mesh filename="package://agx_arm_description/meshes/realsense_mid_stand.dae"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <xacro:if value="${arm == 'nero' and ee == 'gripper'}">
+      <joint name="camera_stand_joint" type="fixed">
+        <origin xyz="0.034 0.001 0.022" rpy="0 0 3.14"/> 
+        <parent link="gripper_base"/>
+        <child  link="camera_stand_link"/>
+      </joint>
+    </xacro:if>
+
+    <xacro:unless value="${arm == 'nero' and ee == 'gripper'}">
+      <joint name="camera_stand_joint" type="fixed">
+        <origin xyz="-0.034 -0.001 0.022" rpy="0.0 0.0 0.0"/>
+        <parent link="gripper_base"/>
+        <child  link="camera_stand_link"/>
+      </joint>
+    </xacro:unless>
+  </xacro:if>
+
+  <xacro:if value="${with_cam_stand and with_cam}">
+
+    <xacro:include filename="$(find realsense2_description)/urdf/test_d435_camera.urdf.xacro"/>
+    <joint name="d435_camera_joint" type="fixed">
+        <origin xyz="-0.031 -0.028 0.0018" rpy="0.0 -1.22 0.0"/>
+        <parent link="camera_stand_link"/>
+        <child link="d435_camera_link"/>
+    </joint>
+
+  </xacro:if>
+
+</robot>

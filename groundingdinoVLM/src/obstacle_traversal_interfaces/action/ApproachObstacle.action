@@ -1,0 +1,22 @@
+string request_id
+nav_msgs/Path locked_path
+geometry_msgs/Point obstacle_center_map
+float32 target_clearance_m
+bool recovery
+float32 recovery_distance_m
+---
+bool reached
+bool stopped
+float32 final_clearance_m
+float32 traveled_distance_m
+string error_code
+string message
+---
+uint8 APPROACHING=0
+uint8 ALIGNING=1
+uint8 RECOVERING=2
+uint8 phase
+float32 target_clearance_m
+float32 global_clearance_m
+float32 cross_track_error_m
+float32 heading_error_rad

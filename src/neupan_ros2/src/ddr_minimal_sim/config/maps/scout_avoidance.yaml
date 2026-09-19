@@ -1,0 +1,19 @@
+world:
+  width: 10.0
+  height: 10.0
+
+obstacles:
+  - shape: {type: 'rectangle', length: 10.4, width: 0.2}
+    pose: {x: 0.0, y: -5.0, yaw: 0.0}
+  - shape: {type: 'rectangle', length: 10.4, width: 0.2}
+    pose: {x: 0.0, y: 5.0, yaw: 0.0}
+  - shape: {type: 'rectangle', length: 10.0, width: 0.2}
+    pose: {x: -5.0, y: 0.0, yaw: 1.5708}
+  - shape: {type: 'rectangle', length: 10.0, width: 0.2}
+    pose: {x: 5.0, y: 0.0, yaw: 1.5708}
+  - shape: {type: 'rectangle', length: 10.0, width: 0.2}
+    pose: {x: 0.0, y: 1.0, yaw: 0.0}
+  - shape: {type: 'rectangle', length: 10.0, width: 0.2}
+    pose: {x: 0.0, y: -1.0, yaw: 0.0}
+  - shape: {type: 'rectangle', length: 0.3, width: 0.2}
+    pose: {x: -2.8, y: -0.35, yaw: 1.5708}

@@ -1,0 +1,15 @@
+detector:
+  provider: external
+  factory_env: SCOUT_TARGET_DETECTOR_ADAPTER
+
+vlm:
+  provider: external
+  factory_env: SCOUT_TARGET_VLM_ADAPTER
+
+temporal:
+  window_size: 3
+  required_positive: 2
+
+runtime:
+  maximum_inference_rate: 5.0
+  image_freshness_timeout: 2.0

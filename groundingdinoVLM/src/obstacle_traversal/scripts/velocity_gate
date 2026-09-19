@@ -1,0 +1,3 @@
+#!/usr/bin/env python3
+from obstacle_traversal.velocity_gate import main
+main()

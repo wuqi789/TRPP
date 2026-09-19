@@ -1,0 +1,17 @@
+llm:
+  provider: external
+  factory_env: SCOUT_DECISION_ADAPTER
+
+vlm:
+  provider: external
+  factory_env: SCOUT_PERCEPTION_ADAPTER
+
+fusion: {}
+
+runtime:
+  input_path: examples/input_example.json
+  output_path: runtime/latest.json
+  history_dir: runtime/history
+
+logging:
+  level: INFO

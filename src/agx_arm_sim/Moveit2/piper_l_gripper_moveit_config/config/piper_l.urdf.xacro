@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="piper_l">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import piper_l urdf file -->
+    <xacro:include filename="$(find agx_arm_description)/agx_arm_urdf/piper_l/urdf/piper_l_with_gripper_description.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="piper_l.ros2_control.xacro" />
+
+
+    <xacro:piper_l_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+  Isaac Sim variant of scout_ros/scout_description/urdf/scout_mini.urdf.xacro.
+  Visual meshes and dimensions stay aligned with scout_ros. Primitive collision
+  shapes keep simulation stable and avoid expensive dynamic mesh collision.
+-->
+<robot name="scout_mini">
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="60"/>
+      <inertia ixx="2.288641" ixy="0" ixz="0" iyy="5.103976" iyz="0" izz="3.431465"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="1.5707 0 -1.5707"/>
+      <geometry>
+        <mesh filename="../scout_ros/scout_description/meshes/scout_mini_base_link.dae"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.620 0.585 0.235"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <link name="front_left_wheel_link">
+    <inertial>
+      <mass value="3"/>
+      <inertia ixx="0.0052" ixy="0" ixz="0" iyy="0.0052" iyz="0" izz="0.0096"/>
+    </inertial>
+    <visual><geometry><mesh filename="../scout_ros/scout_description/meshes/wheel.dae"/></geometry></visual>
+    <collision><geometry><cylinder radius="0.08" length="0.08"/></geometry></collision>
+  </link>
+  <joint name="front_left_wheel" type="continuous">
+    <origin xyz="0.2319755 0.2082515 -0.100998" rpy="-1.5708 0 0"/>
+    <parent link="base_link"/>
+    <child link="front_left_wheel_link"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="rear_left_wheel_link">
+    <inertial>
+      <mass value="3"/>
+      <inertia ixx="0.0052" ixy="0" ixz="0" iyy="0.0052" iyz="0" izz="0.0096"/>
+    </inertial>
+    <visual><geometry><mesh filename="../scout_ros/scout_description/meshes/wheel.dae"/></geometry></visual>
+    <collision><geometry><cylinder radius="0.08" length="0.08"/></geometry></collision>
+  </link>
+  <joint name="rear_left_wheel" type="continuous">
+    <origin xyz="-0.2319755 0.2082515 -0.100998" rpy="-1.5708 0 0"/>
+    <parent link="base_link"/>
+    <child link="rear_left_wheel_link"/>
+    <axis xyz="0 0 1"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="front_right_wheel_link">
+    <inertial>
+      <mass value="3"/>
+      <inertia ixx="0.0052" ixy="0" ixz="0" iyy="0.0052" iyz="0" izz="0.0096"/>
+    </inertial>
+    <visual><geometry><mesh filename="../scout_ros/scout_description/meshes/wheel.dae"/></geometry></visual>
+    <collision><geometry><cylinder radius="0.08" length="0.08"/></geometry></collision>
+  </link>
+  <joint name="front_right_wheel" type="continuous">
+    <origin xyz="0.2319755 -0.2082515 -0.100998" rpy="1.5708 0 0"/>
+    <parent link="base_link"/>
+    <child link="front_right_wheel_link"/>
+    <axis xyz="0 0 -1"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+
+  <link name="rear_right_wheel_link">
+    <inertial>
+      <mass value="3"/>
+      <inertia ixx="0.0052" ixy="0" ixz="0" iyy="0.0052" iyz="0" izz="0.0096"/>
+    </inertial>
+    <visual><geometry><mesh filename="../scout_ros/scout_description/meshes/wheel.dae"/></geometry></visual>
+    <collision><geometry><cylinder radius="0.08" length="0.08"/></geometry></collision>
+  </link>
+  <joint name="rear_right_wheel" type="continuous">
+    <origin xyz="-0.2319755 -0.2082515 -0.100998" rpy="1.5708 0 0"/>
+    <parent link="base_link"/>
+    <child link="rear_right_wheel_link"/>
+    <axis xyz="0 0 -1"/>
+    <dynamics damping="0.05" friction="0.02"/>
+  </joint>
+</robot>

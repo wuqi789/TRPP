@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="nero">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import nero urdf file -->
+    <xacro:include filename="$(find agx_arm_description)/agx_arm_urdf/nero/urdf/nero_with_gripper_description.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="nero.ros2_control.xacro" />
+
+
+    <xacro:nero_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

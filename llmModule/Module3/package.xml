@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>llm_module3</name>
+  <version>0.1.0</version>
+  <description>Multi-level verification for semantic navigation goals.</description>
+  <maintainer email="maintainer@example.com">Maintainer</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <depend>rclpy</depend>
+  <depend>rcl_interfaces</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>semantic_navigation_interfaces</depend>
+  <depend>semantic_navigation_adapters</depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>llm_module1</exec_depend>
+  <exec_depend>llm_module2</exec_depend>
+  <exec_depend>nav2_costmap_2d</exec_depend>
+  <exec_depend>nav2_lifecycle_manager</exec_depend>
+  <exec_depend>nav2_navfn_planner</exec_depend>
+  <exec_depend>nav2_planner</exec_depend>
+  <exec_depend>python3-networkx</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <test_depend>python3-pytest</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

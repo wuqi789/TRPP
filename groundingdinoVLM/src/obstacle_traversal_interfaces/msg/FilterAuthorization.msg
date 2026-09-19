@@ -1,0 +1,10 @@
+std_msgs/Header header
+string request_id
+bool authorized
+geometry_msgs/Point obstacle_center_scan
+geometry_msgs/Point obstacle_center_map
+float32 center_angle_rad
+float32 center_range_m
+float32 maximum_duration_s
+float32 pass_distance_m
+nav_msgs/Path locked_path

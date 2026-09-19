@@ -1,0 +1,58 @@
+vlm:
+  mode: mock
+  adapter_env: SCOUT_ROUTE_ADAPTER
+  response_retries: 1
+  transport_attempts: 1
+  transport_retry_backoff: 0.0
+  maximum_segment_points: 24
+  maximum_route_points: 64
+
+grid:
+  occupied_threshold: 50
+  # Point-level map clearance only. NeuPAN owns local motion and obstacle avoidance.
+  inflation_radius: 0.1
+  snap_max_distance: 0.50
+  render_scale: 4
+  pushability_confidence: 0.85
+  pushability_padding: 0.05
+  pushability_freeze_wait: 1.0
+
+gates:
+  # Research valves are startup-only and fail closed by default.
+  require_module3_verified: true
+  execution_watchdog: true
+
+execution:
+  global_frame: odom
+  robot_frame: base_link
+  goal_frame: map
+  arrival_distance: 0.15
+  arrival_hold_seconds: 0.5
+  segment_timeout: 120.0
+  no_progress_timeout: 30.0
+  progress_distance: 0.05
+  # Direction waypoints may be passed laterally while NeuPAN avoids furniture.
+  # Final goals still require arrival_distance and arrival_hold_seconds.
+  waypoint_pass_lateral_distance: 0.75
+  tf_timeout: 5.0
+  hold_movement_distance: 0.05
+  hold_stable_seconds: 0.5
+  hold_timeout: 5.0
+  start_drift_distance: 0.15
+  request_history_size: 256
+  traversal_pause_limit: 150.0
+
+artifacts:
+  directory: runtime/module4_routes
+
+topics:
+  verification: /semantic_navigation/verification
+  action: /semantic_navigation/execute
+  status: /semantic_navigation/status
+  readiness: /semantic_navigation/readiness
+  map: /semantic_validation/map
+  pushability: /semantic_mapping/pushability_map
+  route: /semantic_navigation/execution_route
+  current: /semantic_navigation/current_waypoint
+  goal: /clicked_point
+  traversal_status: /obstacle_traversal/status

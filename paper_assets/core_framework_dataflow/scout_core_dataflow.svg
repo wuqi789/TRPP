@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg
+  PUBLIC '-//W3C//DTD SVG 1.0//EN'
+  'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'>
+<svg width="1200" height="760" preserveAspectRatio="xMinYMin meet" viewBox="0 0 1200 760" xmlns="http://www.w3.org/2000/svg" version="1.0" fill-rule="evenodd" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<title>...</title>
+	<desc>...</desc>
+	<clipPath id="clip">
+		<rect x="0" y="0" width="1200" height="760"/>
+	</clipPath>
+	<g id="group" transform="scale(1,-1) translate(0,-760)" style="clip-path: url(#clip)">
+		<g transform="">
+			<rect x="20" y="545" width="1160" height="195" rx="12" ry="12" style="stroke: rgb(68%,76%,83%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(96%,98%,98%); fill-rule: evenodd;"/>
+			<text x="34" y="718" style="font-family: FigureSans-Bold; font-size: 16px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1436) scale(1,-1)">(a) Task-level semantic navigation</text>
+			<rect x="20" y="330" width="1160" height="190" rx="12" ry="12" style="stroke: rgb(68%,76%,83%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(96%,98%,98%); fill-rule: evenodd;"/>
+			<text x="34" y="498" style="font-family: FigureSans-Bold; font-size: 16px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,996) scale(1,-1)">(b) NeuPAN navigation and sensed-data loop</text>
+			<rect x="140" y="45" width="1040" height="260" rx="12" ry="12" style="stroke: rgb(68%,76%,83%); stroke-linecap: butt; stroke-width: 1.4; fill: rgb(96%,98%,98%); fill-rule: evenodd;"/>
+			<text x="154" y="283" style="font-family: FigureSans-Bold; font-size: 16px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,566) scale(1,-1)">(c) Event-triggered, dual-gate obstacle traversal assessment</text>
+			<path d="M 330 682 L 455 682 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="455 682, 448.9378 685.5, 448.9378 678.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 715 682 L 855 682 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="855 682, 848.9378 685.5, 848.9378 678.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 995 655 L 995 625 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="995 625, 998.5 631.0622, 991.5 631.0622" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 855 598 L 765 598 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="765 598, 771.0622 594.5, 771.0622 601.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 410 598 L 285 598 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="285 598, 291.0622 594.5, 291.0622 601.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 165 570 L 165 530 L 960 530 L 960 482 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="960 482, 963.5 488.0622, 956.5 488.0622" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 305 452 L 400 452 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="400 452, 393.9378 455.5, 393.9378 448.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 680 452 L 810 452 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="810 452, 803.9378 455.5, 803.9378 448.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 960 425 L 960 382 L 840 382 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="840 382, 846.0622 378.5, 846.0622 385.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 520 377 L 345 377 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="345 377, 351.0622 373.5, 351.0622 380.5" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 195 404 L 195 435 " style="stroke: rgb(49%,56%,61%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="195 435, 191.5 428.9378, 198.5 428.9378" style="stroke: rgb(49%,56%,61%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(49%,56%,61%); fill-rule: evenodd;"/>
+			<path d="M 175 435 L 175 232 L 430 232 " style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="430 232, 423.9378 235.5, 423.9378 228.5" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(29%,54%,40%); fill-rule: evenodd;"/>
+			<path d="M 960 435 L 960 318 L 610 318 L 610 259 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="610 259, 613.5 265.0622, 606.5 265.0622" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 760 598 L 1165 598 L 1165 232 L 790 232 " style="stroke: rgb(41%,49%,54%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd; stroke-dasharray: 6, 5;"/>
+			<polygon points="790 232, 796.0622 228.5, 796.0622 235.5" style="stroke: rgb(41%,49%,54%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(41%,49%,54%); fill-rule: evenodd;"/>
+			<path d="M 520 205 L 520 195 L 360 195 L 360 185 " style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="360 185, 363.5 191.0622, 356.5 191.0622" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(29%,54%,40%); fill-rule: evenodd;"/>
+			<path d="M 700 205 L 700 195 L 825 195 L 825 185 " style="stroke: rgb(78%,54%,18%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="825 185, 828.5 191.0622, 821.5 191.0622" style="stroke: rgb(78%,54%,18%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(78%,54%,18%); fill-rule: evenodd;"/>
+			<path d="M 360 135 L 575 112 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="575 112, 569.3445 116.125, 568.5999 109.1647" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 825 125 L 645 112 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd;"/>
+			<polygon points="645 112, 651.2986 108.9458, 650.7943 115.9276" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(32%,41%,47%); fill-rule: evenodd;"/>
+			<path d="M 755 85 L 820 85 " style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="820 85, 813.9378 88.5, 813.9378 81.5" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(29%,54%,40%); fill-rule: evenodd;"/>
+			<path d="M 465 85 L 390 85 " style="stroke: rgb(71%,39%,39%); stroke-linecap: butt; stroke-width: 1.8; fill: none; fill-rule: evenodd;"/>
+			<polygon points="390 85, 396.0622 81.5, 396.0622 88.5" style="stroke: rgb(71%,39%,39%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(71%,39%,39%); fill-rule: evenodd;"/>
+			<path d="M 1120 84 L 1168 84 L 1168 320 L 540 320 L 540 425 " style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd; stroke-dasharray: 6, 5;"/>
+			<polygon points="540 425, 536.5 418.9378, 543.5 418.9378" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(29%,54%,40%); fill-rule: evenodd;"/>
+			<path d="M 970 113 L 1128 113 L 1128 312 L 680 312 L 680 350 " style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd; stroke-dasharray: 6, 5;"/>
+			<polygon points="680 350, 676.5 343.9378, 683.5 343.9378" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(29%,54%,40%); fill-rule: evenodd;"/>
+			<path d="M 170 84 L 145 84 L 145 312 L 720 312 L 720 350 " style="stroke: rgb(71%,39%,39%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd; stroke-dasharray: 6, 5;"/>
+			<polygon points="720 350, 716.5 343.9378, 723.5 343.9378" style="stroke: rgb(71%,39%,39%); stroke-linecap: butt; stroke-width: 0.5; fill: rgb(71%,39%,39%); fill-rule: evenodd;"/>
+			<ellipse cx="190.0" cy="682.0" rx="140.0" ry="27.0" style="stroke: rgb(18%,29%,37%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="75.56982421875" y="681.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1363) scale(1,-1)">Natural-language instruction</text>
+			<text x="146.1466064453125" y="666.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1332) scale(1,-1)">/user_instruction</text>
+			<rect x="455" y="655" width="260" height="54" rx="10" ry="10" style="stroke: rgb(78%,54%,18%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,95%,85%); fill-rule: evenodd;"/>
+			<text x="485.04833984375" y="687.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1375) scale(1,-1)">Module 1 · Intent parsing</text>
+			<text x="513.22265625" y="672.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1344) scale(1,-1)">LLM → strict semantic JSON</text>
+			<text x="487.5673828125" y="660.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1320) scale(1,-1)">goal · relation · constraints · strategy</text>
+			<rect x="855" y="655" width="280" height="54" rx="10" ry="10" style="stroke: rgb(33%,49%,63%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="871.47802734375" y="687.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1375) scale(1,-1)">Module 2 · Semantic grounding</text>
+			<text x="894.6629638671875" y="672.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1344) scale(1,-1)">entity resolution on static YAML graph</text>
+			<text x="892.045654296875" y="660.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1320) scale(1,-1)">goal ID · pose · topology · map revision</text>
+			<rect x="855" y="570" width="280" height="55" rx="10" ry="10" style="stroke: rgb(33%,49%,63%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="861.2958984375" y="603.25" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1206) scale(1,-1)">Module 3 · Fail-closed verification</text>
+			<text x="892.7557373046875" y="587.75" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1175) scale(1,-1)">entity → topology → geometry → Navfn</text>
+			<text x="876.162353515625" y="575.75" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1151) scale(1,-1)">map · costmap · TF/pose → VerificationResult</text>
+			<rect x="410" y="565" width="355" height="66" rx="10" ry="10" style="stroke: rgb(65%,46%,20%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(97%,94%,89%); fill-rule: evenodd;"/>
+			<text x="476.95947265625" y="608.25" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1216) scale(1,-1)">Module 4 · Execution bridge</text>
+			<text x="467.381591796875" y="592.75" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1185) scale(1,-1)">VLM coarse waypoints + deterministic sanitization</text>
+			<text x="467.4766845703125" y="581.75" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1163) scale(1,-1)">connected free space · snapping · FIFO/watchdogs</text>
+			<text x="480.304931640625" y="570.75" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1141) scale(1,-1)">terminal iff active target = ∅ and queue = ∅</text>
+			<rect x="50" y="570" width="235" height="55" rx="10" ry="10" style="stroke: rgb(33%,49%,63%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="92.17822265625" y="597.25" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1194) scale(1,-1)">Verified FIFO goals</text>
+			<text x="131.4241943359375" y="581.75" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,1163) scale(1,-1)">/clicked_point</text>
+			<rect x="45" y="425" width="260" height="54" rx="10" ry="10" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,96%,94%); fill-rule: evenodd;"/>
+			<text x="105.259765625" y="457.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,915) scale(1,-1)">On-board sensing</text>
+			<text x="96.126953125" y="442.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,884) scale(1,-1)">RGB · CameraInfo · raw LiDAR</text>
+			<text x="138.2423095703125" y="430.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,860) scale(1,-1)">TF / odometry</text>
+			<rect x="400" y="425" width="280" height="54" rx="10" ry="10" style="stroke: rgb(33%,49%,63%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="413.1865234375" y="456.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,913) scale(1,-1)">Authorization-scoped scan filter</text>
+			<text x="478.9110107421875" y="441.25" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,882) scale(1,-1)">default: full scan retained</text>
+			<text x="426.366455078125" y="430.25" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,860) scale(1,-1)">only the tracked cluster is temporarily removed</text>
+			<rect x="810" y="425" width="300" height="54" rx="10" ry="10" style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(92%,94%,95%); fill-rule: evenodd;"/>
+			<text x="862.70751953125" y="451.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,903) scale(1,-1)">NeuPAN local navigation</text>
+			<text x="843.182373046875" y="436.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,872) scale(1,-1)">/scan + FIFO goal → local path / raw velocity</text>
+			<rect x="520" y="350" width="320" height="54" rx="10" ry="10" style="stroke: rgb(33%,49%,63%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="583.82861328125" y="376.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,753) scale(1,-1)">Fail-closed velocity gate</text>
+			<text x="557.2222900390625" y="361.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,722) scale(1,-1)">STOP while verifying · speed limit if authorized</text>
+			<ellipse cx="195.0" cy="377.0" rx="150.0" ry="27.0" style="stroke: rgb(18%,29%,37%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="108.51513671875" y="376.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,753) scale(1,-1)">Scout Mini / Isaac Sim</text>
+			<text x="102.9378662109375" y="361.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,722) scale(1,-1)">/cmd_vel · physical/world feedback</text>
+			<rect x="430" y="205" width="360" height="54" rx="10" ry="10" style="stroke: rgb(33%,49%,63%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="499.791015625" y="236.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,473) scale(1,-1)">Traversal event coordinator</text>
+			<text x="474.15185546875" y="221.25" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,442) scale(1,-1)">path-corridor obstacle detection · synchronized snapshot</text>
+			<text x="495.5709228515625" y="210.25" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,420) scale(1,-1)">LiDAR cluster → RGB ROI · task/track correlation</text>
+			<rect x="230" y="135" width="260" height="50" rx="10" ry="10" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,96%,94%); fill-rule: evenodd;"/>
+			<text x="308.73388671875" y="165.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,331) scale(1,-1)">Identity gate</text>
+			<text x="288.4969482421875" y="150.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,300) scale(1,-1)">Target detector candidates</text>
+			<text x="296.769287109375" y="138.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,276) scale(1,-1)">+ verifier ROI validation</text>
+			<rect x="650" y="125" width="350" height="60" rx="10" ry="10" style="stroke: rgb(78%,54%,18%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,95%,85%); fill-rule: evenodd;"/>
+			<text x="760.62939453125" y="160.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,321) scale(1,-1)">Pushability gate</text>
+			<text x="747.26513671875" y="145.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,290) scale(1,-1)">Structured scene assessment</text>
+			<text x="726.9342041015625" y="133.25" style="font-family: FigureSans; font-size: 10.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,266) scale(1,-1)">+ decision adapter with vehicle state</text>
+			<polygon points="610 120, 755 85, 610 50, 465 85" style="stroke: rgb(18%,29%,37%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="542.529296875" y="84.25" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,168) scale(1,-1)">Both gates pass?</text>
+			<text x="520.1094970703125" y="68.75" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,137) scale(1,-1)">identity verified ∧ P(pushable) ≥ 0.70</text>
+			<rect x="820" y="55" width="300" height="58" rx="10" ry="10" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(91%,96%,94%); fill-rule: evenodd;"/>
+			<text x="857.85302734375" y="88.75" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,177) scale(1,-1)">Time-bounded authorization</text>
+			<text x="876.08544921875" y="73.25" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,146) scale(1,-1)">tracked cluster only · speed ≤ 0.15 m/s</text>
+			<text x="872.5322265625" y="62.25" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,124) scale(1,-1)">expiry/pass/watchdog → restore full scan</text>
+			<rect x="170" y="55" width="220" height="58" rx="10" ry="10" style="stroke: rgb(71%,39%,39%); stroke-linecap: butt; stroke-width: 1.5; fill: rgb(98%,93%,93%); fill-rule: evenodd;"/>
+			<text x="191.994140625" y="83.25" style="font-family: FigureSans-Bold; font-size: 14px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,166) scale(1,-1)">Reject / provider error</text>
+			<text x="209.042236328125" y="67.75" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,135) scale(1,-1)">retain full scan · avoid or stop</text>
+			<rect x="378.541748046875" y="686" width="26.91650390625" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="382.541748046875" y="689" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,1378) scale(1,-1)">text</text>
+			<rect x="741.3115234375" y="686" width="87.376953125" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="745.3115234375" y="689" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,1378) scale(1,-1)">NavigationIntent</text>
+			<rect x="996.0772705078125" y="632" width="87.845458984375" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="1000.0772705078125" y="635" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,1270) scale(1,-1)">ResolutionResult</text>
+			<rect x="776.50732421875" y="602" width="66.9853515625" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="780.50732421875" y="605" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,1210) scale(1,-1)">verified only</text>
+			<rect x="303.5728759765625" y="602" width="82.854248046875" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="307.5728759765625" y="605" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,1210) scale(1,-1)">sanitized points</text>
+			<rect x="483.7320556640625" y="533" width="52.535888671875" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="487.7320556640625" y="536" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,1072) scale(1,-1)">next goal</text>
+			<rect x="324.2685546875" y="456" width="55.462890625" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="328.2685546875" y="459" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,918) scale(1,-1)">/scan_raw</text>
+			<rect x="729.39208984375" y="456" width="33.2158203125" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="733.39208984375" y="459" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,918) scale(1,-1)">/scan</text>
+			<rect x="835.3394775390625" y="387" width="113.321044921875" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="839.3394775390625" y="390" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,780) scale(1,-1)">/neupan_cmd_vel_raw</text>
+			<rect x="387.0560302734375" y="381" width="85.887939453125" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="391.0560302734375" y="384" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,768) scale(1,-1)">gated command</text>
+			<rect x="815.6287841796875" y="319" width="58.742431640625" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="819.6287841796875" y="322" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(32%,41%,47%); stroke:none;" transform="translate(0,644) scale(1,-1)">initial path</text>
+			<rect x="391.3203125" y="186" width="97.359375" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="395.3203125" y="189" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(29%,54%,40%); stroke:none;" transform="translate(0,378) scale(1,-1)">same image + ROI</text>
+			<rect x="663.8607177734375" y="186" width="172.278564453125" height="13.5" rx="3" ry="3" style="stroke: none; stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,100%,100%); fill-rule: evenodd;"/>
+			<text x="667.8607177734375" y="189" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(78%,54%,18%); stroke:none;" transform="translate(0,378) scale(1,-1)">same image + ROI + vehicle state</text>
+			<rect x="210" y="16" width="24" height="14" rx="3" ry="3" style="stroke: rgb(78%,54%,18%); stroke-linecap: butt; stroke-width: 1; fill: rgb(100%,95%,85%); fill-rule: evenodd;"/>
+			<text x="242" y="18" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,36) scale(1,-1)">generative reasoning</text>
+			<rect x="430" y="16" width="24" height="14" rx="3" ry="3" style="stroke: rgb(33%,49%,63%); stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,94%,97%); fill-rule: evenodd;"/>
+			<text x="462" y="18" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,36) scale(1,-1)">deterministic verification / control</text>
+			<rect x="730" y="16" width="24" height="14" rx="3" ry="3" style="stroke: rgb(29%,54%,40%); stroke-linecap: butt; stroke-width: 1; fill: rgb(91%,96%,94%); fill-rule: evenodd;"/>
+			<text x="762" y="18" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,36) scale(1,-1)">sensing / perception</text>
+			<path d="M 925 23 L 965 23 " style="stroke: rgb(32%,41%,47%); stroke-linecap: butt; stroke-width: 1.5; fill: none; fill-rule: evenodd; stroke-dasharray: 6, 5;"/>
+			<text x="975" y="18" style="font-family: FigureSans; font-size: 9.5px;fill: rgb(14%,20%,27%); stroke:none;" transform="translate(0,36) scale(1,-1)">authorization / supervisory state</text>
+		</g>
+	</g>
+</svg>

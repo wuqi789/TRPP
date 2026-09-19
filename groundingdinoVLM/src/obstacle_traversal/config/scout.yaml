@@ -1,0 +1,61 @@
+obstacle_traversal_manager:
+  ros__parameters:
+    path_topic: /neupan_initial_path
+    scan_topic: /scan_raw
+    image_topic: /camera/camera/color/image_raw
+    camera_info_topic: /camera/camera/color/camera_info
+    map_frame: map
+    robot_frame: base_link
+    camera_frame: camera_color_optical_frame
+    trigger_distance: 1.50
+    corridor_half_width: 0.433
+    sync_tolerance: 0.20
+    pretrigger_guard_release_s: 0.30
+    pretrigger_path_heading_tolerance_rad: 0.35
+    decision_threshold: 0.70
+    deadline: 125.0
+    filter_duration: 30.0
+    pass_distance: 0.80
+    cache_motion: 1.0
+    cache_match_distance: 1.0
+    roi_minimum_width_px: 320.0
+    roi_minimum_height_px: 320.0
+
+obstacle_traversal_scan_filter:
+  ros__parameters:
+    raw_topic: /scan_raw
+    filtered_topic: /scan
+    removed_topic: /scan_removed
+    # Remove every scan component in the verified local path band. This covers
+    # discontinuous curtain folds while retaining walls outside the corridor.
+    target_band_half_width_m: 0.433
+    before_obstacle_length: 0.45
+    after_obstacle_length: 0.80
+    track_loss_completion_grace_m: 0.20
+
+obstacle_traversal_velocity_gate:
+  ros__parameters:
+    input_topic: /neupan_cmd_vel_raw
+    output_topic: /neupan_cmd_vel
+    maximum_traversal_linear_speed: 0.15
+    traversal_lookahead_m: 0.35
+    maximum_traversal_angular_speed: 0.25
+    maximum_traversal_cross_track_error: 0.15
+    maximum_traversal_heading_error: 1.20
+    traversal_scan_watchdog: 0.50
+    footprint_length_m: 0.62
+    footprint_width_m: 0.586
+    self_filter_padding_m: 0.05
+    external_emergency_clearance_m: 0.10
+
+obstacle_approach_controller:
+  ros__parameters:
+    action_name: /obstacle_traversal/approach_obstacle
+    command_topic: /obstacle_traversal/approach_cmd_vel
+    scan_topic: /scan_raw
+    odom_topic: /odom
+    rear_negative_one_is_no_return: false
+    target_band_half_width_m: 0.433
+    before_obstacle_length_m: 0.45
+    after_obstacle_length_m: 0.80
+    target_face_depth_m: 0.05

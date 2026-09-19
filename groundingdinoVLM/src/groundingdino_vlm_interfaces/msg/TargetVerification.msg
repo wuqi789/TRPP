@@ -1,0 +1,26 @@
+uint8 IDLE=0
+uint8 DETECTING=1
+uint8 VLM_PENDING=2
+uint8 VERIFIED=3
+uint8 REJECTED=4
+uint8 ERROR=5
+
+std_msgs/Header header
+string request_id
+sensor_msgs/RegionOfInterest roi
+sensor_msgs/RegionOfInterest target_roi
+uint64 target_revision
+uint64 vlm_request_id
+string raw_target_label
+string target_label
+uint8 state
+bool dino_detected
+bool vlm_accepted
+bool verified
+groundingdino_vlm_interfaces/DetectionCandidate[] candidates
+string vlm_provider
+string vlm_model
+float32 dino_latency_ms
+float32 vlm_latency_ms
+string error_code
+string message

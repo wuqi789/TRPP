@@ -1,0 +1,154 @@
+# Runtime copy of an external historical scene export.
+# Keep both files semantically identical; test_map_matches_scene_export guards drift.
+
+ontology:
+  hospital: {aliases: [hospital scene, hospital ward, 医院]}
+  jackal: {aliases: [jackal robot, robot, 杰卡尔机器人]}
+  wheelchair: {aliases: [wheel chair, mobility chair, 轮椅]}
+  supply_cart: {aliases: [supply cart, medical supply trolley, supply trolley, 补给车, 医疗推车]}
+  disposal_stand: {aliases: [disposal stand, waste stand, disposal station, 废物处理架]}
+  wet_floor_sign: {aliases: [wet floor sign, caution sign, 小心地滑牌]}
+  chair: {aliases: [seat, 椅子]}
+  hospital_bed: {aliases: [hospital bed, medical bed, 病床]}
+  trashcan: {aliases: [trash can, bin, waste bin, 垃圾桶]}
+  cracker_box:
+    aliases:
+      [cracker box, biscuit box, biscuit carton, biscuit cartoncracker box, 饼干盒, 饼干纸箱]
+  thin_cube: {aliases: [thin cube, flat cube]}
+  jackal_spawn: {aliases: [robot spawn, start position]}
+  route_wp_01: {aliases: []}
+  route_wp_02: {aliases: []}
+  route_wp_03: {aliases: []}
+  route_goal: {aliases: [route destination]}
+  hospital_reference_route: {aliases: [reference route]}
+
+rooms:
+  - id: hospital_scene
+    type: room
+    name: hospital
+    position: {x: 0.0, y: 0.0, theta: 0.0}
+    properties: {category: healthcare_environment, source_prim: /World/hospital, geometry: external_usd_reference}
+
+objects:
+  - id: jackal_robot
+    type: object
+    name: jackal
+    position: {x: -10.0, y: -1.0, theta: 0.0}
+    properties: {category: mobile_robot, dynamic: true, source_prim: /World/jackal}
+  - id: wheelchair_01
+    type: object
+    name: wheelchair
+    position: {x: -9.866, y: 0.567, theta: -1.222}
+    properties: {category: mobility_aid, source_prim: /World/hospital/SM_WheelChair_01a2}
+  - id: supply_cart_01
+    type: object
+    name: supply_cart
+    position: {x: -7.433, y: -1.955, theta: 0.885}
+    properties: {category: hospital_cart, source_prim: /World/hospital/SM_SupplyCart_02a_28}
+  - id: disposal_stand_01
+    type: object
+    name: disposal_stand
+    position: {x: -3.230, y: -0.091, theta: 0.0}
+    properties: {category: hospital_fixture, source_prim: /World/hospital/SM_DisposalStand_03_65}
+  - id: wet_floor_sign_01
+    type: object
+    name: wet_floor_sign
+    position: {x: -9.068, y: -2.309, theta: -0.524}
+    properties: {category: warning_sign, source_prim: /World/hospital/S_WetWarningSign}
+  - id: chair_01
+    type: object
+    name: chair
+    position: {x: -4.674, y: -1.841, theta: 2.269}
+    properties: {category: furniture, source_prim: /World/hospital/SM_Chair_04a2_88}
+  - id: wheelchair_02
+    type: object
+    name: wheelchair
+    position: {x: -0.879, y: 1.327, theta: 0.479}
+    properties: {category: mobility_aid, source_prim: /World/hospital/SM_WheelChair_01a2_01}
+  - id: wet_floor_sign_02
+    type: object
+    name: wet_floor_sign
+    position: {x: -4.089, y: 2.990, theta: -0.524}
+    properties: {category: warning_sign, source_prim: /World/hospital/S_WetWarningSign_01}
+  - id: hospital_bed_01
+    type: object
+    name: hospital_bed
+    position: {x: -0.814, y: -0.688, theta: -3.142}
+    properties: {category: hospital_bed, source_prim: /World/hospital/SM_HospitalBed_01b_141}
+  - id: trashcan_01
+    type: object
+    name: trashcan
+    position: {x: -3.697, y: 0.335, theta: 0.0}
+    properties: {category: waste_container, source_prim: /World/hospital/trashcan_06}
+  - id: cracker_box_01
+    type: object
+    name: cracker_box
+    position: {x: -7.214, y: -0.631, theta: 0.647}
+    properties: {category: ycb_object, source_prim: /World/_03_cracker_box, scale: [2.0, 2.0, 5.0], footprint_radius: 0.12}
+  - id: cracker_box_02
+    type: object
+    name: cracker_box
+    position: {x: -2.278, y: 0.479, theta: 0.550}
+    properties: {category: ycb_object, source_prim: /World/_03_cracker_box_01, scale: [2.0, 2.0, 5.0], footprint_radius: 0.12}
+  - id: thin_cube_01
+    type: object
+    name: thin_cube
+    position: {x: 2.923, y: 6.017, theta: -1.774}
+    properties: {category: scene_geometry, source_prim: /World/Cube, scale: [0.05, 1.0, 0.01]}
+
+waypoints:
+  - id: jackal_spawn
+    type: waypoint
+    name: jackal_spawn
+    position: {x: -10.0, y: -1.0, theta: 0.0}
+    properties: {role: start, source: usd_robot_transform}
+  - id: route_wp_01
+    type: waypoint
+    name: route_wp_01
+    position: {x: 0.0, y: 0.0, theta: 0.0}
+    properties: {role: route, source: dct_neupan_config}
+  - id: route_wp_02
+    type: waypoint
+    name: route_wp_02
+    position: {x: 7.0, y: 0.0, theta: 0.0}
+    properties: {role: route, source: dct_neupan_config}
+  - id: route_wp_03
+    type: waypoint
+    name: route_wp_03
+    position: {x: 7.9, y: 0.6, theta: 1.0}
+    properties: {role: route, source: dct_neupan_config}
+  - id: route_goal
+    type: waypoint
+    name: route_goal
+    position: {x: 7.9, y: 5.0, theta: 1.57}
+    properties: {role: goal, source: dct_neupan_config}
+
+corridors:
+  - id: hospital_reference_route
+    type: corridor
+    name: hospital_reference_route
+    position: {x: -5.0, y: -0.5, theta: 0.100}
+    properties: {category: inferred_route_corridor, source: dct_neupan_waypoints}
+
+relations:
+  - {source: jackal_robot, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: wheelchair_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: supply_cart_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: disposal_stand_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: wet_floor_sign_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: chair_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: wheelchair_02, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: wet_floor_sign_02, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: hospital_bed_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: trashcan_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: cracker_box_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: cracker_box_02, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: thin_cube_01, target: hospital_scene, relation: inside, confidence: 1.0}
+  - {source: jackal_spawn, target: hospital_reference_route, relation: connected, distance: 5.025, confidence: 1.0}
+  - {source: hospital_reference_route, target: route_wp_01, relation: connected, distance: 5.025, confidence: 1.0}
+  - {source: route_wp_01, target: route_wp_02, relation: connected, distance: 7.000, confidence: 1.0}
+  - {source: route_wp_02, target: route_wp_03, relation: connected, distance: 1.082, confidence: 1.0}
+  - {source: route_wp_03, target: route_goal, relation: connected, distance: 4.400, confidence: 1.0}
+  - {source: trashcan_01, target: disposal_stand_01, relation: near, distance: 0.632, confidence: 1.0}
+  - {source: cracker_box_01, target: supply_cart_01, relation: near, distance: 1.342, confidence: 1.0}
+  - {source: cracker_box_02, target: disposal_stand_01, relation: near, distance: 1.110, confidence: 1.0}

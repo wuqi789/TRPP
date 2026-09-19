@@ -1,0 +1,44 @@
+entity_check:
+  enabled: true
+
+topology_check:
+  enabled: true
+
+geometry_check:
+  enabled: true
+
+planner_check:
+  enabled: true
+
+dynamic_check:
+  # Dynamic sensor safety belongs to the execution layer and is intentionally
+  # outside Module3's canonical static-verification pipeline.
+  enabled: false
+
+# Startup-only research valves. Every canonical static gate is enabled by
+# default. Disable a gate only for data-flow diagnosis and report the bypass.
+
+robot_start_node: jackal_robot
+
+validation:
+  planner_namespace: semantic_validation
+  planner_timeout: 10.0
+  ready_timeout: 30.0
+  mask_update_timeout: 10.0
+  costmap_topic: /semantic_validation/global_costmap/costmap
+  map_topic: /semantic_validation/map
+  costmap_maximum_age: 2.0
+  clock_stall_timeout: 5.0
+  robot_frame: base_link
+  global_frame: odom
+  robot_radius: 0.333
+
+occupancy_grid:
+  # Legacy core-test fixture. Canonical runtime verification uses Nav2's live
+  # /semantic_validation/global_costmap/costmap instead.
+  width: 22
+  height: 12
+  resolution: 1.0
+  origin_x: -2.0
+  origin_y: -4.0
+  occupied: []

@@ -1,0 +1,15 @@
+bool verified
+semantic_navigation_interfaces/ResolutionResult resolution
+string request_id
+string error_code
+string message
+string map_revision
+string goal_id
+string canonical_name
+geometry_msgs/PoseStamped goal_pose
+string[] topology_context
+semantic_navigation_interfaces/Constraint[] constraints
+string strategy
+semantic_navigation_interfaces/CheckResult[] checks
+float32 planning_length
+float32 planning_time

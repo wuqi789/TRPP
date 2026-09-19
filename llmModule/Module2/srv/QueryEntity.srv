@@ -1,0 +1,7 @@
+string entity_name
+---
+bool success
+string[] ids
+float32[] x
+float32[] y
+

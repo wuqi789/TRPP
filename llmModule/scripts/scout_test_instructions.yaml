@@ -1,0 +1,210 @@
+metadata:
+  map: scout_kujiale_0021.yaml
+  topic: /user_instruction
+  default_interval_seconds: 35.0
+  notes:
+  - Expected Module2 results assume Module1 returns the listed normalized intent.
+  - Module3 PASS additionally requires its validation planner, costmap, keepout mask, and TF.
+
+cases:
+- id: refrigerator_exact_en
+  category: positive
+  instruction: Navigate to the refrigerator
+  expected:
+    module1_goal: refrigerator
+    module2_resolved: true
+    goal_id: kitchen_fridge_0000
+
+- id: refrigerator_alias_en
+  category: positive
+  instruction: Go to the fridge
+  expected:
+    module1_goal: fridge
+    module2_resolved: true
+    goal_id: kitchen_fridge_0000
+
+- id: bed_exact_en
+  category: positive
+  instruction: Navigate to the bed
+  expected:
+    module1_goal: bed
+    module2_resolved: true
+    goal_id: bedroom_bed_0000
+
+- id: sofa_exact_en
+  category: positive
+  instruction: Move to the sofa
+  expected:
+    module1_goal: sofa
+    module2_resolved: true
+    goal_id: living_room_sofa_0001
+
+- id: sink_exact_en
+  category: positive
+  instruction: Navigate to the sink
+  expected:
+    module1_goal: sink
+    module2_resolved: true
+    goal_id: bathroom_basin_0001
+
+- id: dining_table_en
+  category: positive
+  instruction: Go to the dining table
+  expected:
+    module1_goal: dining_table
+    module2_resolved: true
+    goal_id: living_room_dining_table_0000
+
+- id: kitchen_room_en
+  category: positive
+  instruction: Navigate to the kitchen
+  expected:
+    module1_goal: kitchen
+    module2_resolved: true
+    goal_id: kitchen
+
+- id: bathroom_room_en
+  category: positive
+  instruction: Navigate to the bathroom
+  expected:
+    module1_goal: bathroom
+    module2_resolved: true
+    goal_id: bathroom
+
+- id: entrance_en
+  category: positive
+  instruction: Go to the apartment entrance
+  expected:
+    module1_goal: apartment_entrance
+    module2_resolved: true
+    goal_id: apartment_entrance
+
+- id: refrigerator_zh
+  category: positive
+  instruction: 请导航到冰箱
+  expected:
+    module1_goal: refrigerator
+    module2_resolved: true
+    goal_id: kitchen_fridge_0000
+
+- id: bed_zh
+  category: positive
+  instruction: 请前往床边
+  expected:
+    module1_goal: bed
+    module2_resolved: true
+    goal_id: bedroom_bed_0000
+
+- id: sofa_zh
+  category: positive
+  instruction: 移动到沙发旁
+  expected:
+    module1_goal: sofa
+    module2_resolved: true
+    goal_id: living_room_sofa_0001
+
+- id: refrigerator_via_sofa
+  category: constraint
+  instruction: Navigate to the refrigerator via the sofa
+  expected:
+    module1_goal: refrigerator
+    module1_constraints: [via sofa]
+    module2_resolved: true
+    goal_id: kitchen_fridge_0000
+
+- id: sofa_avoid_bed
+  category: constraint
+  instruction: Navigate to the sofa and avoid the bed
+  expected:
+    module1_goal: sofa
+    module1_constraints: [avoid bed]
+    module2_resolved: true
+    goal_id: living_room_sofa_0001
+
+- id: sink_via_entrance
+  category: constraint
+  instruction: Navigate to the sink via the apartment entrance
+  expected:
+    module1_goal: sink
+    module1_constraints: [via apartment_entrance]
+    module2_resolved: true
+    goal_id: bathroom_basin_0001
+
+- id: bed_avoid_refrigerator
+  category: constraint
+  instruction: Navigate to the bed and avoid the refrigerator
+  expected:
+    module1_goal: bed
+    module1_constraints: [avoid refrigerator]
+    module2_resolved: true
+    goal_id: bedroom_bed_0000
+
+- id: chair_ambiguous
+  category: negative
+  instruction: Navigate to the chair
+  expected:
+    module1_goal: chair
+    module2_resolved: false
+    error_code: ENTITY_AMBIGUOUS
+
+- id: table_ambiguous
+  category: negative
+  instruction: Navigate to the table
+  expected:
+    module1_goal: table
+    module2_resolved: false
+    error_code: ENTITY_AMBIGUOUS
+
+- id: cabinet_near_sink_ambiguous
+  category: negative
+  instruction: Navigate to the cabinet near the sink
+  expected:
+    module1_goal: cabinet
+    module1_reference: sink
+    module1_relation: near
+    module2_resolved: false
+    error_code: RELATION_AMBIGUOUS
+
+- id: chair_near_dining_table_ambiguous
+  category: negative
+  instruction: Navigate to the chair near the dining table
+  expected:
+    module1_goal: chair
+    module1_reference: dining_table
+    module1_relation: near
+    module2_resolved: false
+    error_code: RELATION_AMBIGUOUS
+
+- id: doorway_ambiguous
+  category: negative
+  instruction: Navigate to the doorway
+  expected:
+    module1_goal: doorway
+    module2_resolved: false
+    error_code: ENTITY_AMBIGUOUS
+
+- id: television_excluded
+  category: negative
+  instruction: Navigate to the television
+  expected:
+    module1_goal: television
+    module2_resolved: false
+    error_code: ENTITY_NOT_FOUND
+
+- id: toilet_excluded
+  category: negative
+  instruction: Navigate to the toilet
+  expected:
+    module1_goal: toilet
+    module2_resolved: false
+    error_code: ENTITY_NOT_FOUND
+
+- id: refrigerator_via_ambiguous_chair
+  category: negative
+  instruction: Navigate to the refrigerator via the chair
+  expected:
+    module1_goal: refrigerator
+    module1_constraints: [via chair]
+    module2_resolved: false
+    error_code: ENTITY_AMBIGUOUS
+

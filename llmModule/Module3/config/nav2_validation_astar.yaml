@@ -1,0 +1,47 @@
+"/semantic_validation/planner_server":
+  ros__parameters:
+    use_sim_time: true
+    expected_planner_frequency: 1.0
+    planner_plugins: ["GridBased"]
+    GridBased:
+      plugin: "nav2_navfn_planner/NavfnPlanner"
+      tolerance: 0.25
+      use_astar: true
+      allow_unknown: false
+      use_final_approach_orientation: true
+
+"/semantic_validation/global_costmap/global_costmap":
+  ros__parameters:
+    use_sim_time: true
+    global_frame: odom
+    robot_base_frame: base_link
+    update_frequency: 2.0
+    publish_frequency: 2.0
+    always_send_full_costmap: true
+    transform_tolerance: 0.5
+    resolution: 0.05
+    track_unknown_space: false
+    footprint: "[[0.31, 0.2925], [0.31, -0.2925], [-0.31, -0.2925], [-0.31, 0.2925]]"
+    footprint_padding: 0.02
+    plugins: ["static_layer", "inflation_layer"]
+    filters: ["keepout_filter"]
+    static_layer:
+      plugin: "nav2_costmap_2d::StaticLayer"
+      map_topic: /semantic_validation/map
+      map_subscribe_transient_local: true
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      inflation_radius: 0.43
+      cost_scaling_factor: 4.0
+    keepout_filter:
+      plugin: "nav2_costmap_2d::KeepoutFilter"
+      enabled: true
+      filter_info_topic: /semantic_validation/keepout_filter_info
+      transform_tolerance: 0.1
+
+"/semantic_validation/lifecycle_manager_validation":
+  ros__parameters:
+    use_sim_time: true
+    autostart: true
+    bond_timeout: 4.0
+    node_names: ["planner_server"]

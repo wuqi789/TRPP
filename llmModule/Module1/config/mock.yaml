@@ -1,0 +1,2 @@
+mode: mock
+adapter_env: SCOUT_NAVIGATION_INTENT_ADAPTER

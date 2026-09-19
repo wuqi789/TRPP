@@ -1,0 +1,10 @@
+string goal_id
+float32 goal_x
+float32 goal_y
+---
+bool verified
+string[] failed_checks
+string explanation
+float32 goal_x
+float32 goal_y
+

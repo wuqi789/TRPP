@@ -1,0 +1,74 @@
+# ROS/colcon and generated metadata
+build/
+install/
+log/
+**/build/
+**/install/
+**/log/
+*.egg-info/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local environments, caches, and downloaded providers
+.codex/
+.agents/
+.venv/
+**/.venv/
+.deps/
+**/.deps/
+.python_deps/
+**/.python_deps/
+.cache/
+**/.cache/
+
+# Models and weights are provisioned locally
+models/
+weights/
+**/models/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.safetensors
+
+# The only redistributable runtime checkpoint; see THIRD_PARTY_NOTICES.md.
+!src/neupan_ros2/src/neupan_ros2/config/robots/scout/models/
+!src/neupan_ros2/src/neupan_ros2/config/robots/scout/models/dune_model_5000.pth
+
+# Runtime data and diagnostics
+runtime/
+**/runtime/
+acceptance_results/
+migration_backup/
+rosbags/
+*.bag
+*.db3
+*.mcap
+*.jsonl
+*.log
+*.pcap
+*.pkl
+*.pickle
+*.npy
+*.npz
+*.sqlite
+*.sqlite3
+llmdecision/examples/output_history/
+llmdecision/examples/batch_decisions/
+llmdecision/examples/vlm_raw_responses/
+llmdecision/examples/images/
+llmModule/reports/
+
+# Credentials and machine-local configuration
+.env
+.env.*
+*.pem
+*.key
+*.token
+credentials.*
+secrets.*
+local_config.*
+known_hosts.local

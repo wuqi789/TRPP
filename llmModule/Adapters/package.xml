@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>semantic_navigation_adapters</name>
+  <version>0.1.0</version>
+  <description>Reusable Nav2 costmap, keepout-mask, and planner adapters.</description>
+  <maintainer email="maintainer@example.com">Maintainer</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <depend>rclpy</depend>
+  <depend>action_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>map_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>nav2_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>semantic_navigation_interfaces</depend>
+  <test_depend>python3-pytest</test_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

@@ -1,0 +1,5 @@
+# rclpy is supplied by the sourced ROS 2 Humble installation.
+rclpy
+PyYAML>=5.4
+Pillow>=9.0
+pytest>=6.2

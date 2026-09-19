@@ -1,0 +1,13 @@
+std_msgs/Header header
+bool accepted
+string error_code
+string message
+uint32 original_points
+uint32 pruned_points
+uint32 output_points
+float64 original_length
+float64 pruned_length
+float64 output_length
+float64 maximum_curvature
+float64 maximum_heading_step
+float64 final_yaw_error

@@ -1,0 +1,12 @@
+string request_id
+sensor_msgs/CompressedImage image
+sensor_msgs/RegionOfInterest roi
+sensor_msgs/RegionOfInterest target_roi
+string vocabulary
+---
+groundingdino_vlm_interfaces/TargetVerification verification
+---
+uint8 DETECTING=1
+uint8 VLM_PENDING=2
+uint8 state
+string message

@@ -1,0 +1,3 @@
+[submodule "agx_arm_description/agx_arm_urdf"]
+	path = agx_arm_description/agx_arm_urdf
+	url = https://github.com/agilexrobotics/agx_arm_urdf

@@ -1,0 +1,9 @@
+string task_id
+string request_id
+string state
+string failure_code
+string message
+float32 distance_remaining
+uint32 planning_attempt
+uint32 recovery_count
+bool terminal

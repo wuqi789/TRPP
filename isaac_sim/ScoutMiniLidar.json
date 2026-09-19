@@ -1,0 +1,39 @@
+{
+  "class": "sensor",
+  "type": "lidar",
+  "name": "Scout Mini 2D Lidar",
+  "driveWorksId": "GENERIC",
+  "profile": {
+    "scanType": "rotary",
+    "intensityProcessing": "normalization",
+    "rotationDirection": "CW",
+    "rayType": "IDEALIZED",
+    "nearRangeM": 0.15,
+    "minDistBetweenEchos": 0.15,
+    "farRangeM": 8.0,
+    "rangeResolutionM": 0.01,
+    "rangeAccuracyM": 0.01,
+    "avgPowerW": 0.004,
+    "minReflectance": 0.1,
+    "minReflectanceRange": 8.0,
+    "wavelengthNm": 905.0,
+    "pulseTimeNs": 5,
+    "azimuthErrorMean": 0.0,
+    "azimuthErrorStd": 0.0,
+    "elevationErrorMean": 0.0,
+    "elevationErrorStd": 0.0,
+    "maxReturns": 1,
+    "scanRateBaseHz": 10.0,
+    "reportRateBaseHz": 7200,
+    "numberOfEmitters": 1,
+    "emitterStateCount": 1,
+    "emitterStates": [
+      {
+        "azimuthDeg": [0],
+        "elevationDeg": [0],
+        "fireTimeNs": [0]
+      }
+    ],
+    "intensityMappingType": "LINEAR"
+  }
+}

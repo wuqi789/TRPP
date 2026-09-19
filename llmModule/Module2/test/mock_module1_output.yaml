@@ -1,0 +1,6 @@
+# Simulated llm_module1/msg/NavigationIntent
+goal_object: cracker_box
+reference_object: supply_cart
+relation: near
+strategy: shortest
+constraints: []

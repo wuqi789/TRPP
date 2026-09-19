@@ -1,0 +1,8 @@
+semantic_navigation_interfaces/VerificationResult verification
+---
+string task_id
+string terminal_state
+string failure_code
+string message
+---
+semantic_navigation_interfaces/NavigationTaskStatus status

@@ -1,0 +1,99 @@
+#usda 1.0
+(
+    defaultPrim = "Root"
+    subLayers = [
+        @../isaacsim-assets/InteriorAgent/kujiale_0021/kujiale_0021.usda@
+    ]
+)
+
+# Navigation overlay: keep apartment structure and main living-room obstacles,
+# but skip high-poly rooms and small decorations that do not affect planning.
+over "Root"
+{
+    over "Meshes"
+    {
+        over "kitchen_753" (active = false) {}
+        over "bathroom_1361" (active = false) {}
+        over "bedroom_4089" (active = false) {}
+        over "balcony_117" (active = false) {}
+        over "ceiling" (active = false) {}
+
+        over "other"
+        {
+            over "door_0000" (active = false) {}
+            over "door_0001" (active = false) {}
+            over "door_0002" (active = false) {}
+            over "door_0003" (active = false) {}
+            over "door_0004" (active = false) {}
+            over "window_0000" (active = false) {}
+            over "window_0001" (active = false) {}
+            over "window_0002" (active = false) {}
+            over "window_0003" (active = false) {}
+        }
+
+        over "livingroom_377"
+        {
+            over "chandelier_0000" (active = false) {}
+            over "chandelier_0001" (active = false) {}
+            over "chandelier_0002" (active = false) {}
+            over "cup_0001" (active = false) {}
+            over "cup_0002" (active = false) {}
+            over "cup_0003" (active = false) {}
+            over "tea_set_0000" (active = false) {}
+            over "ornament_0000" (active = false) {}
+            over "ornament_0007" (active = false) {}
+            over "ornament_0008" (active = false) {}
+            over "ornament_0009" (active = false) {}
+            over "ornament_0010" (active = false) {}
+            over "ornament_0011" (active = false) {}
+            over "ornament_0012" (active = false) {}
+            over "ornament_0013" (active = false) {}
+            over "ornament_0014" (active = false) {}
+            over "vase_0000" (active = false) {}
+            over "book_0007" (active = false) {}
+            over "book_0008" (active = false) {}
+            over "book_0009" (active = false) {}
+            over "book_0010" (active = false) {}
+            over "book_0011" (active = false) {}
+            over "book_0012" (active = false) {}
+            over "book_0013" (active = false) {}
+            over "book_0014" (active = false) {}
+            over "book_0015" (active = false) {}
+            over "book_0016" (active = false) {}
+            over "book_0017" (active = false) {}
+            over "book_0018" (active = false) {}
+            over "book_0019" (active = false) {}
+            over "book_0020" (active = false) {}
+            over "book_0021" (active = false) {}
+            over "book_0022" (active = false) {}
+            over "book_0023" (active = false) {}
+            over "book_0024" (active = false) {}
+            over "book_0025" (active = false) {}
+            over "book_0026" (active = false) {}
+            over "book_0027" (active = false) {}
+            over "book_0028" (active = false) {}
+            over "book_0029" (active = false) {}
+            over "book_0030" (active = false) {}
+            over "book_0031" (active = false) {}
+            over "book_0032" (active = false) {}
+            over "book_0033" (active = false) {}
+            over "book_0034" (active = false) {}
+            over "book_0035" (active = false) {}
+            over "book_0036" (active = false) {}
+            over "book_0037" (active = false) {}
+            over "flower_0003" (active = false) {}
+            over "throw_pillow_0000" (active = false) {}
+            over "throw_pillow_0001" (active = false) {}
+            over "throw_pillow_0002" (active = false) {}
+            over "wine_set_0000" (active = false) {}
+            over "wine_set_0001" (active = false) {}
+            over "wine_set_0002" (active = false) {}
+            over "wine_set_0003" (active = false) {}
+            over "wine_set_0004" (active = false) {}
+            over "spot_light_0000" (active = false) {}
+            over "pillow_0006" (active = false) {}
+            over "pillow_0007" (active = false) {}
+            over "pillow_0008" (active = false) {}
+        }
+    }
+}

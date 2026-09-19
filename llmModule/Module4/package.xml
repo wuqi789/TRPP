@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>llm_module4</name>
+  <version>0.1.0</version>
+  <description>VLM route bridge from verified semantic goals to Scout NeuPAN.</description>
+  <maintainer email="maintainer@example.com">Maintainer</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_python</buildtool_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>semantic_navigation_interfaces</depend>
+  <depend>semantic_navigation_adapters</depend>
+  <depend>obstacle_traversal_interfaces</depend>
+  <exec_depend>ament_index_python</exec_depend>
+  <exec_depend>python3-pil</exec_depend>
+  <exec_depend>python3-yaml</exec_depend>
+  <test_depend>python3-pytest</test_depend>
+  <test_depend>ament_cmake_pytest</test_depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

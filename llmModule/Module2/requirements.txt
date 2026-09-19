@@ -1,0 +1,4 @@
+networkx>=2.8
+PyYAML>=5.4
+typing-extensions>=4.8,<5
+pytest>=7.0

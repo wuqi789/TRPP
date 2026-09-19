@@ -1,0 +1,15 @@
+# ROS/colcon generated output
+build/
+install/
+log/
+
+# Generated manifests and accidental runtime placeholders
+symlink_install_manifest.txt
+llm_agent_node
+
+# Python/test caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.python_deps/

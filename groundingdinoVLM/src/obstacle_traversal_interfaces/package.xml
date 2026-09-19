@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>obstacle_traversal_interfaces</name>
+  <version>0.1.0</version>
+  <description>Typed interfaces for verified dynamic obstacle traversal.</description>
+  <maintainer email="maintainer@example.com">Scout Mini Maintainer</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <build_depend>rosidl_default_generators</build_depend>
+  <exec_depend>rosidl_default_runtime</exec_depend>
+  <depend>action_msgs</depend>
+  <depend>builtin_interfaces</depend>
+  <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <member_of_group>rosidl_interface_packages</member_of_group>
+  <export><build_type>ament_cmake</build_type></export>
+</package>

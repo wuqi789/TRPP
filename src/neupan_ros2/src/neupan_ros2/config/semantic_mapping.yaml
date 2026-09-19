@@ -1,0 +1,29 @@
+semantic_mapper:
+  ros__parameters:
+    rgb_topic: /isaac/color_image_raw
+    depth_topic: /isaac/aligned_depth_to_color/image_raw
+    camera_info_topic: /isaac/color/camera_info
+    occupancy_map_topic: /map
+    map_frame: map
+    max_inference_rate: 5.0
+    voxel_size: 0.08
+    pixel_stride: 4
+    depth_scale: 0.001
+    depth_min: 0.30
+    depth_max: 6.0
+    pixel_confidence_min: 0.35
+    min_voxel_votes: 3
+    min_vote_ratio: 0.60
+    publish_every_frames: 5
+
+    # The fixed Piper pose occludes the lower 28% of the simulated image.
+    # Recalibrate this normalized polygon after changing the camera mount.
+    self_mask_polygon: '0.0,0.72,1.0,0.72,1.0,1.0,0.0,1.0'
+
+    # Project non-background mock labels only onto occupied 2D cells.
+    ignored_class_ids: '0'
+    occupancy_threshold: 50
+    obstacle_snap_radius: 0.15
+    obstacle_fill_radius: 0.15
+    obstacle_layer_z: 0.06
+    label_min_cells: 20

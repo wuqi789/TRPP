@@ -1,0 +1,46 @@
+rooms:
+  - id: office_A
+    type: room
+    name: office_A
+    position: {x: 0.0, y: 0.0, theta: 0.0}
+  - id: kitchen
+    type: room
+    name: kitchen
+    position: {x: 8.0, y: 3.0, theta: 0.0}
+
+objects:
+  - id: coffee_machine_01
+    type: object
+    name: coffee_machine
+    position: {x: 5.2, y: 3.1, theta: 0.0}
+    properties: {category: appliance}
+  - id: window_01
+    type: object
+    name: window
+    position: {x: 6.0, y: 3.5, theta: 0.0}
+
+corridors:
+  - id: corridor_A
+    type: corridor
+    name: corridor_A
+    position: {x: 4.0, y: 1.5, theta: 0.0}
+
+relations:
+  - source: coffee_machine_01
+    target: window_01
+    relation: near
+    distance: 1.0
+    confidence: 0.98
+  - source: coffee_machine_01
+    target: kitchen
+    relation: inside
+    confidence: 1.0
+  - source: office_A
+    target: corridor_A
+    relation: connected
+    distance: 4.3
+  - source: corridor_A
+    target: kitchen
+    relation: connected
+    distance: 4.1
+

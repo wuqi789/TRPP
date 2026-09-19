@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>scout_public_mock</name>
+  <version>0.1.0</version>
+  <description>Deterministic, credential-free ROS 2 providers for the public Scout Mini demo.</description>
+  <maintainer email="maintainer@example.com">Scout Mini Maintainer</maintainer>
+  <license>Apache-2.0</license>
+  <buildtool_depend>ament_python</buildtool_depend>
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>action_msgs</exec_depend>
+  <exec_depend>builtin_interfaces</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>groundingdino_vlm_interfaces</exec_depend>
+  <exec_depend>obstacle_traversal_interfaces</exec_depend>
+  <exec_depend>semantic_navigation_interfaces</exec_depend>
+  <export><build_type>ament_python</build_type></export>
+</package>

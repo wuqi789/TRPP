@@ -1,0 +1,18 @@
+detector:
+  provider: mock
+  detected: true
+  confidence: 0.95
+
+vlm:
+  provider: mock
+  model: mock-target-verifier
+  decision: ACCEPT
+
+temporal:
+  window_size: 3
+  required_positive: 2
+
+runtime:
+  maximum_inference_rate: 20.0
+  image_freshness_timeout: 2.0
+

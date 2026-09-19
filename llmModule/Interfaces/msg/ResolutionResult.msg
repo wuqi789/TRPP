@@ -1,0 +1,14 @@
+bool resolved
+semantic_navigation_interfaces/NavigationIntent intent
+string request_id
+string error_code
+string message
+string map_revision
+string goal_id
+string canonical_name
+string match_method
+float32 similarity
+geometry_msgs/PoseStamped goal_pose
+string[] topology_context
+semantic_navigation_interfaces/Constraint[] constraints
+string strategy

@@ -1,0 +1,22 @@
+uint8 ACCEPTED=0
+uint8 REJECTED=1
+uint8 ERROR=2
+
+std_msgs/Header header
+string request_id
+sensor_msgs/RegionOfInterest roi
+sensor_msgs/RegionOfInterest target_roi
+uint8 state
+string object_category
+float32 pushability_probability
+string[] action_names
+float32[] action_probabilities
+string risk
+float32 mage_vl_latency_ms
+float32 decision_latency_ms
+float32 total_latency_ms
+string perception_provider
+string decision_provider
+string decision_model
+string error_code
+string message

@@ -1,0 +1,41 @@
+vlm:
+  mode: mock
+  adapter_env: SCOUT_AFFORDANCE_ADAPTER
+  response_retries: 1
+  transport_attempts: 1
+  transport_retry_backoff: 0.0
+  maximum_objects: 32
+
+keyframes:
+  minimum_translation: 0.50
+  minimum_rotation_degrees: 30.0
+  minimum_interval: 5.0
+
+localization:
+  map_frame: map
+  robot_frame: base_link
+  depth_scale: 0.001
+  depth_min: 0.30
+  depth_max: 6.0
+  class_confidence_min: 0.35
+  ignored_class_ids: '0,3,5'
+  pixel_stride: 2
+  minimum_points: 20
+  maximum_size: 3.5
+  self_mask_polygon: '0.0,0.72,1.0,0.72,1.0,1.0,0.0,1.0'
+  association_iou: 0.20
+  association_distance: 0.60
+  traversal_confidence: 0.85
+
+topics:
+  rgb: /isaac/color_image_raw
+  depth: /isaac/aligned_depth_to_color/image_raw
+  camera_info: /isaac/color/camera_info
+  class_ids: /semantic_mapping/class_ids
+  class_confidence: /semantic_mapping/class_confidence
+  mapping_active: /semantic_mapping/active
+  clicked_point: /clicked_point
+  pushability_map: /semantic_mapping/pushability_map
+  markers: /semantic_mapping/pushability_markers
+  overlay: /semantic_mapping/pushability_overlay
+  readiness: /semantic_mapping/pushability_readiness

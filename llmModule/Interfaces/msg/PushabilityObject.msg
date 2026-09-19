@@ -1,0 +1,11 @@
+string instance_id
+string label
+geometry_msgs/Pose pose
+geometry_msgs/Vector3 size
+bool pushable
+float32 confidence
+float32 positive_confidence
+float32 negative_confidence
+uint32 observation_count
+builtin_interfaces/Time last_observed
+string evidence

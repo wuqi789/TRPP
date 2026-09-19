@@ -1,0 +1,92 @@
+obstacle_traversal_manager:
+  ros__parameters:
+    path_topic: /neupan_initial_path
+    scan_topic: /scan_raw
+    image_topic: /isaac/color_image_raw
+    camera_info_topic: /isaac/color/camera_info
+    map_frame: map
+    robot_frame: base_link
+    camera_frame: d435_color_optical_frame
+    trigger_distance: 1.50
+    corridor_half_width: 0.433
+    sync_tolerance: 0.20
+    pretrigger_guard_release_s: 0.30
+    pretrigger_path_heading_tolerance_rad: 0.35
+    decision_threshold: 0.70
+    fusion_threshold: 0.75
+    minimum_dino_roi_overlap: 0.20
+    deadline: 125.0
+    target_clearance_m: 0.05
+    clearance_tolerance_m: 0.005
+    recovery_distance_m: 0.30
+    filter_duration: 30.0
+    pass_distance: 0.80
+    cache_motion: 1.0
+    cache_match_distance: 1.0
+    self_filter_padding: 0.05
+    roi_minimum_width_px: 320.0
+    roi_minimum_height_px: 320.0
+
+obstacle_traversal_scan_filter:
+  ros__parameters:
+    raw_topic: /scan_raw
+    filtered_topic: /scan
+    removed_topic: /scan_removed
+    # Remove every scan component in the verified local path band. This covers
+    # discontinuous curtain folds while retaining walls outside the corridor.
+    target_band_half_width_m: 0.433
+    before_obstacle_length: 0.45
+    after_obstacle_length: 0.80
+    track_loss_completion_grace_m: 0.20
+
+obstacle_traversal_velocity_gate:
+  ros__parameters:
+    input_topic: /neupan_cmd_vel_raw
+    output_topic: /neupan_cmd_vel
+    approach_command_topic: /obstacle_traversal/approach_cmd_vel
+    maximum_traversal_linear_speed: 0.15
+    traversal_lookahead_m: 0.35
+    maximum_traversal_angular_speed: 0.25
+    maximum_traversal_cross_track_error: 0.15
+    maximum_traversal_heading_error: 1.20
+    traversal_scan_watchdog: 0.50
+    footprint_length_m: 0.62
+    footprint_width_m: 0.586
+    self_filter_padding_m: 0.05
+    external_emergency_clearance_m: 0.10
+    approach_command_watchdog: 0.20
+
+obstacle_approach_controller:
+  ros__parameters:
+    action_name: /obstacle_traversal/approach_obstacle
+    command_topic: /obstacle_traversal/approach_cmd_vel
+    scan_topic: /scan_raw
+    odom_topic: /odom
+    target_lost_timeout_s: 1.50
+    input_watchdog_s: 0.50
+    lookahead_m: 0.35
+    far_speed_mps: 0.15
+    near_speed_mps: 0.08
+    maximum_angular_speed: 0.25
+    maximum_recoverable_heading_error: 1.20
+    alignment_speed: 0.10
+    alignment_tolerance: 0.05
+    recovery_speed_mps: 0.10
+    clearance_filter_frames: 3.0
+    clearance_confirm_frames: 3.0
+    alignment_hysteresis_m: 0.01
+    alignment_outside_hold_s: 0.30
+    critical_clearance_m: 0.15
+    minimum_recoverable_clearance_m: -0.05
+    critical_clearance_frames: 3.0
+    correction_speed_mps: 0.03
+    maximum_correction_distance_m: 0.30
+    rear_sector_half_angle_rad: 0.60
+    rear_minimum_coverage: 0.80
+    # Isaac RTX encodes a valid no-return ray as finite -1.0.
+    rear_negative_one_is_no_return: true
+    rear_preflight_margin_m: 0.10
+    target_band_half_width_m: 0.433
+    before_obstacle_length_m: 0.45
+    after_obstacle_length_m: 0.80
+    target_face_depth_m: 0.05

@@ -1,0 +1,6 @@
+string request_id
+string reason
+---
+bool released
+string error_code
+string message
