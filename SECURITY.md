@@ -1,71 +1,87 @@
-# 安全策略
+# Security Policy
 
-## 公开版本的安全边界
+## Public Release Security Boundary
 
-默认 `SCOUT_PUBLIC_BACKEND=mock` 完全本地运行，不应读取 API key、SSH 密码或实体硬件
-凭据。云端模型、SSH 推理、真实机械臂和实体传感器属于外部适配范围，不随公开版本提供。
+The default `SCOUT_PUBLIC_BACKEND=mock` runs entirely locally and must not read API keys, SSH
+passwords, or physical-hardware credentials. Cloud models, SSH inference, real arm control, and
+physical sensors are external adapter concerns and are not included in the public release.
 
-## 凭据
+## Credentials
 
-- 不在源码、YAML、README、shell 参数、截图或 issue 中保存凭据。
-- 正式 adapter 只从进程环境或部署平台的 secret manager 读取凭据。
-- 不使用交互式提示收集密码，因为输入容易进入终端录制或自动化日志。
-- 禁止记录环境变量值、Authorization header、请求正文、远端 stderr 或完整 provider 响应。
-- 发现泄露后应立即吊销并轮换凭据，再清理 Git 历史；只删除当前文件不等于完成处置。
+- Do not store credentials in source files, YAML, README files, shell arguments, screenshots, or
+  issues.
+- Production adapters must read credentials only from the process environment or the deployment
+  platform's secret manager.
+- Do not collect passwords through interactive prompts; input can enter terminal recordings or
+  automation logs.
+- Never log environment variable values, Authorization headers, request bodies, remote stderr, or
+  complete provider responses.
+- If a secret is exposed, revoke and rotate it immediately, then clean the Git history; deleting
+  only the current file is not sufficient remediation.
 
-环境变量名是公开契约，可以保留；其值不是仓库配置。不要把真实值写进 `.env` 后提交。
+Environment variable names are public contracts and may remain in the repository; their values are
+not repository configuration. Never commit real values in `.env` files.
 
-## 数据与日志
+## Data and Logs
 
-相机图像、点云、rosbag、模型输入/输出和路线诊断可能包含室内布局、人员或设备信息。
-默认写入仓库外的权限受控目录；调试时可使用 `runtime/`，该目录已被忽略。项目启动脚本
-使用 `umask 077`，并把 ROS 日志写入权限为 `0700` 的 `runtime/ros_logs/`。设置最短必要
-保留期，分享前去除 EXIF、主机名、绝对路径、时间戳、网络地址和人员信息。
+Camera images, point clouds, rosbags, model inputs/outputs, and route diagnostics may contain
+interior layouts, people, or equipment information. Write them to a permission-controlled
+directory outside the repository by default; `runtime/` may be used for debugging and is ignored.
+The startup script uses `umask 077` and writes ROS logs to `runtime/ros_logs/` with mode `0700`.
+Use the shortest necessary retention period and remove EXIF, hostnames, absolute paths, timestamps,
+network addresses, and personal information before sharing.
 
-不要把 pickle、NumPy dump、SQLite 数据库或其他不透明序列化文件作为示例数据提交。
-它们既可能包含原始场景/模型数据，pickle 类格式还可能在反序列化时执行代码。公开测试
-只使用可人工审阅的最小 JSON/YAML 夹具；真实数据留在仓库外的受控存储中。
+Do not commit pickle files, NumPy dumps, SQLite databases, or other opaque serialized files as
+example data. They may contain raw scene/model data, and pickle-like formats can execute code when
+deserialized. Public tests must use minimal, human-reviewable JSON/YAML fixtures; keep real data in
+controlled storage outside the repository.
 
-ROS 2 日志默认位于用户的 ROS 日志目录。发布问题报告时只摘录必要错误，并检查：
+ROS 2 logs normally reside in the user's ROS log directory. When publishing a bug report, include
+only the necessary errors and check for:
 
-- 用户名、主机名和工作区绝对路径；
-- topic 数据中的图像、点云、位姿和实体名称；
-- provider URL、硬件 IP、序列号、MAC 地址和 SSH 指纹；
-- 任何 token、cookie、header 或环境变量值。
+- usernames, hostnames, and absolute workspace paths;
+- images, point clouds, poses, and entity names in topic data;
+- provider URLs, hardware IPs, serial numbers, MAC addresses, and SSH fingerprints;
+- any token, cookie, header, or environment variable value.
 
-## 构建与模型文件
+## Build and Model Files
 
-`build/`、`install/`、`log/`、缓存和 Python 虚拟环境包含本机路径，不进入发布包。除
-`THIRD_PARTY_NOTICES.md` 明确列出的运行必需上游 checkpoint 外，模型权重由使用者按
-许可证在本机准备。迁移主机后重新构建，不复制 colcon 产物。
+`build/`, `install/`, `log/`, caches, and Python virtual environments contain local paths and must
+not be included in a release. Except for runtime-required upstream checkpoints explicitly listed in
+`THIRD_PARTY_NOTICES.md`, users must obtain model weights locally under their applicable licenses.
+Rebuild after moving to another host; do not copy colcon artifacts.
 
-`.codex/`、`.agents/` 等本地开发工具元数据也不属于源码，即使当前未包含凭据也不得放入
-公开发行。嵌套 `.git`/`.hg`/`.svn` 和指向工作区外部的符号链接同样禁止进入发行件，
-避免带出历史凭据、远端地址或本机文件。
+Local development-tool metadata such as `.codex/` and `.agents/` is not source code and must not
+enter a public release even when it currently contains no credentials. Nested `.git`/`.hg`/`.svn`
+directories and symlinks that point outside the workspace are likewise forbidden, preventing
+historical credentials, remote URLs, or local files from being carried into the release.
 
-## 网络与硬件
+## Network and Hardware
 
-公开默认 launch 设置 `ROS_LOCALHOST_ONLY=1`，降低与局域网中实体机器人或其他同域节点
-互相发现的风险。确需跨主机 ROS 2 通信时，部署者必须自行配置 DDS 安全、网络隔离和
-访问控制。实体 LiDAR IP、CAN 设备和 SSH host 只放在未提交的本机配置中。
+The public default launch sets `ROS_LOCALHOST_ONLY=1` to reduce discovery with physical robots or
+other nodes on the local network. For cross-host ROS 2 communication, the deployer must configure
+DDS security, network isolation, and access control. Keep physical LiDAR IPs, CAN devices, and SSH
+hosts only in uncommitted local configuration.
 
-## 发布前检查
+## Pre-release Checks
 
-至少执行：
+At minimum, run:
 
 ```bash
 ./scripts/security_scan.sh
 ```
 
-命中项必须人工分类。接口中的 `password_env` 或测试占位符不是凭据，但真实值、绝对本机
-路径和生成日志必须删除。脚本不会判断第三方资产的再分发权；资产许可仍须按
-`THIRD_PARTY_NOTICES.md` 人工核验。
+Classify every match manually. An interface's `password_env` or a test placeholder is not a
+credential, but real values, absolute local paths, and generated logs must be removed. The script
+does not determine third-party asset redistribution rights; verify asset licenses manually according
+to `THIRD_PARTY_NOTICES.md`.
 
-`run_real_traversal_acceptance.sh` 会记录图像、点云、位姿和模型输出，只有显式设置
-`SCOUT_ALLOW_SENSITIVE_RECORDING=1` 才会启动。该开关只是风险确认，不会自动完成脱敏、
-加密或到期删除。
+`run_real_traversal_acceptance.sh` records images, point clouds, poses, and model outputs and starts
+only when `SCOUT_ALLOW_SENSITIVE_RECORDING=1` is explicitly set. This switch confirms the risk; it
+does not automatically anonymize, encrypt, or delete data on expiry.
 
-## 漏洞报告
+## Vulnerability Reports
 
-不要在公开 issue 中附带密钥、日志、rosbag 或室内数据。通过仓库维护者公布的私密渠道
-提供最小复现，并说明受影响模块、版本和是否涉及实体硬件。
+Do not attach keys, logs, rosbags, or interior data to public issues. Use a private channel
+published by the repository maintainers to provide a minimal reproduction, including the affected
+module, version, and whether physical hardware is involved.

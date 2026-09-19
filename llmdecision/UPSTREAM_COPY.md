@@ -1,7 +1,9 @@
 # Imported llmdecision source
 
-> 来源记录：本文只说明文件复制边界，不表示外部 provider 实现或历史输出属于公开默认
-> 运行链。当前模块状态和数据安全要求见本目录 README 与根 `SECURITY.md`。
+> Provenance record: this file describes only the file-copy boundary. It does not mean that an
+> external provider implementation or historical output belongs to the public default runtime chain.
+> See this directory's README and the root `SECURITY.md` for current module status and data-security
+> requirements.
 
 - Source: external source tree (path intentionally omitted)
 - Import mode: regular-file copy; no symbolic links

@@ -1,13 +1,14 @@
-# 多终端调试说明
+# Four-Terminal Debugging Guide
 
-> 版本状态：公开 mock。默认演示只需运行根目录的 `run_traversal_system.sh`；本文用于观察
-> ROS 2 数据链，不是正式 provider 的部署手册。
+> Status: public mock. The default demonstration only requires the root
+> `run_traversal_system.sh`; this document is for observing the ROS 2 data path, not for deploying
+> real providers.
 
-所有终端必须使用同一 `ROS_DOMAIN_ID` 和 RMW。根脚本默认设置
-`ROS_DOMAIN_ID=42`、`RMW_IMPLEMENTATION=rmw_fastrtps_cpp`、`ROS_LOCALHOST_ONLY=1`。
-除非已配置 DDS 安全和网络隔离，不要开放局域网发现。
+All terminals must use the same `ROS_DOMAIN_ID` and RMW. The root script defaults to
+`ROS_DOMAIN_ID=42`, `RMW_IMPLEMENTATION=rmw_fastrtps_cpp`, and `ROS_LOCALHOST_ONLY=1`. Do not
+enable LAN discovery unless DDS security and network isolation are configured.
 
-## 终端 1：公开演示
+## Terminal 1: Public Demonstration
 
 ```bash
 cd "$SCOUT_WORKSPACE"
@@ -15,10 +16,11 @@ export ISAACSIM_PYTHON_EXE=/path/to/isaacsim/python.sh
 ./run_traversal_system.sh
 ```
 
-该入口启动真实 Isaac living-room、`/odom`、TF、LiDAR、NeuPAN、速度闸，以及本地 mock
-provider 和固定路线状态机。它不访问凭据、不启动云端模型，也不执行机械臂动作。
+This entry point starts the real Isaac living-room scene, `/odom`, TF, LiDAR, NeuPAN, the velocity
+gate, the local mock provider, and the fixed-route state machine. It does not access credentials,
+start cloud models, or execute arm motions.
 
-## 终端 2：状态检查
+## Terminal 2: State Checks
 
 ```bash
 cd "$SCOUT_WORKSPACE"
@@ -31,11 +33,11 @@ export ROS_LOCALHOST_ONLY=1
 ros2 topic echo /semantic_navigation/status
 ```
 
-正常顺序包括等待里程计/TF、发布路线、执行和 `SUCCEEDED`。若持续显示
-`WAITING_FOR_ODOM`，检查 Isaac 是否发布 `/odom`；若报告 TF 错误，确认
-`map -> odom -> base_link` 链存在且没有第二个同名发布者。
+The normal sequence is waiting for odometry/TF, publishing the route, executing, and reaching
+`SUCCEEDED`. If `WAITING_FOR_ODOM` persists, check that Isaac publishes `/odom`; for TF errors,
+confirm that the `map -> odom -> base_link` chain exists and has no duplicate publisher.
 
-## 终端 3：数据通路
+## Terminal 3: Data Path
 
 ```bash
 ros2 topic hz /scan_raw
@@ -45,16 +47,18 @@ ros2 topic hz /cmd_vel
 ros2 run tf2_ros tf2_echo map base_link
 ```
 
-`/clicked_point` 由公开路线驱动自动发布，不需要人工发送导航指令。mock provider 的接口
-可用性可通过 `ros2 action list` 和 `ros2 topic list` 检查。
+`/clicked_point` is published automatically by the public route driver; no manual navigation command
+is required. Check mock-provider interfaces with `ros2 action list` and `ros2 topic list`.
 
-## 终端 4：可选可视化
+## Terminal 4: Optional Visualization
 
-启动时使用 `use_rviz:=true` 即可，无需再启动第二套导航节点。不要同时运行正式和 mock
-launch，否则可能产生重复 action server、重复 TF 或多个速度发布者。
+Use `use_rviz:=true` at startup; there is no need to start a second navigation stack. Do not run
+real and mock launches simultaneously, which can create duplicate action servers, duplicate TF, or
+multiple velocity publishers.
 
-## 正式版本说明
+## Real-Version Notes
 
-Module1-4、正式感知/决策 provider 和真实 Piper 探测不属于公开默认
-链路。替换方式见根 README。凭据只能由外部 secret manager 注入；任何终端、文档或
-脚本都不应显示、回显或交互式索取凭据。
+Module1-4, real perception/decision providers, and real Piper probing are not part of the public
+default chain. See the root README for replacement guidance. Credentials may only be injected by an
+external secret manager; no terminal, document, or script should display, echo, or interactively
+request them.

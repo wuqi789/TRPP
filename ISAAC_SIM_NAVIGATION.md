@@ -1,9 +1,9 @@
-# Isaac Sim 与 NeuPAN 导航说明
+# Isaac Sim and NeuPAN Navigation Guide
 
-> 版本状态：Isaac 场景、传感器、TF、NeuPAN 和速度控制真实运行；语义 provider、机械臂
-> 动作和高层路线生成在公开默认链路中为 mock。
+> Status: the Isaac scene, sensors, TF, NeuPAN, and velocity control run for real; semantic
+> providers, arm motions, and high-level route generation are mock in the public default chain.
 
-## 数据链
+## Data Path
 
 ```text
 living-room scene
@@ -14,23 +14,23 @@ living-room scene
   -> traversal velocity gate -> /cmd_vel -> Scout Mini in Isaac
 ```
 
-`map -> odom -> base_link` 必须在发布路线前可用。公开路线驱动会等待 TF 和 `/odom`，
-避免 Nav2/NeuPAN 在 `odom` 尚不存在时启动任务。默认 launch 还保留
-`base_link -> lidar_link` 等传感器静态变换。
+`map -> odom -> base_link` must be available before the route is published. The public route driver
+waits for TF and `/odom`, preventing Nav2/NeuPAN from starting a task before `odom` exists. The
+default launch also retains static sensor transforms such as `base_link -> lidar_link`.
 
-## 关键文件
+## Key Files
 
-| 路径 | 作用 | 本机适配 |
+| Path | Purpose | Local adaptation |
 | --- | --- | --- |
-| `isaac_sim/scout_avoidance.py` | 加载场景、机器人、传感器和 ROS bridge | Isaac API 版本、GPU |
-| `isaac_sim/scout_mini_isaac.urdf` | Scout Mini 仿真描述 | 替换机器人时修改 |
-| `isaac_sim/ScoutMiniLidar.json` | RTX LiDAR 配置 | 频率、量程、分辨率 |
-| `isaacsim-assets/InteriorAgent/kujiale_0021` | living-room 资产 | 许可与资产根目录 |
-| `src/neupan_ros2/src/neupan_ros2/launch/isaac_sim.launch.py` | Isaac/NeuPAN 组合 launch | Isaac Python、显示模式 |
-| `src/neupan_ros2/src/neupan_ros2/config/robots/scout` | Scout 规划参数 | footprint、checkpoint |
-| `groundingdinoVLM/src/obstacle_traversal/launch/public_isaac_traversal.launch.py` | 公开固定路线入口 | 起点、目标和场景配套参数 |
+| `isaac_sim/scout_avoidance.py` | Loads the scene, robot, sensors, and ROS bridge | Isaac API version, GPU |
+| `isaac_sim/scout_mini_isaac.urdf` | Scout Mini simulation description | Modify when replacing the robot |
+| `isaac_sim/ScoutMiniLidar.json` | RTX LiDAR configuration | Rate, range, resolution |
+| `isaacsim-assets/InteriorAgent/kujiale_0021` | Living-room assets | License and asset root |
+| `src/neupan_ros2/src/neupan_ros2/launch/isaac_sim.launch.py` | Isaac/NeuPAN combined launch | Isaac Python, display mode |
+| `src/neupan_ros2/src/neupan_ros2/config/robots/scout` | Scout planning parameters | Footprint, checkpoint |
+| `groundingdinoVLM/src/obstacle_traversal/launch/public_isaac_traversal.launch.py` | Public fixed-route entry point | Start, goal, and scene-specific parameters |
 
-## 运行
+## Run
 
 ```bash
 cd "$SCOUT_WORKSPACE"
@@ -40,10 +40,11 @@ export ISAACSIM_PYTHON_EXE=/path/to/isaacsim/python.sh
 ./run_traversal_system.sh headless:=false use_rviz:=true
 ```
 
-脚本自动计算仓库路径。`ISAACSIM_PYTHON_EXE` 或 `ISAACSIM_PATH` 必须由本机设置；仓库
-不提供 Isaac Sim，也不应保存开发机安装路径。
+The script computes the repository path automatically. Set `ISAACSIM_PYTHON_EXE` or
+`ISAACSIM_PATH` on the local machine; the repository does not provide Isaac Sim and must not store
+developer-machine installation paths.
 
-## 故障检查
+## Troubleshooting
 
 ```bash
 ros2 topic hz /odom
@@ -52,10 +53,14 @@ ros2 run tf2_ros tf2_echo map base_link
 ros2 topic echo /semantic_navigation/status
 ```
 
-- `Invalid frame ID "odom"`：Isaac 尚未发布里程计、bridge 未加载，或存在错误的重复 TF。
-- 小车不动：检查 `/clicked_point`、`/neupan_cmd_vel_raw`、`/cmd_vel` 的发布频率和速度闸状态。
-- 场景为空：检查 USD 相对路径和第三方资产是否完整。
-- 启动后立即失败：检查 Isaac Python 是否可执行、ROS 2 bridge 与 Isaac 版本是否匹配。
+- `Invalid frame ID "odom"`: Isaac has not published odometry, the bridge is not loaded, or a
+  duplicate TF publisher is misconfigured.
+- Robot does not move: check the publish rates and velocity-gate state for `/clicked_point`,
+  `/neupan_cmd_vel_raw`, and `/cmd_vel`.
+- Empty scene: check the USD relative path and third-party asset completeness.
+- Immediate startup failure: check that Isaac Python is executable and that the ROS 2 bridge and
+  Isaac versions are compatible.
 
-不要复制其他主机的 `build/`、`install/`、`log/`；其中嵌入绝对路径。迁移后按根 README
-重新构建。运行日志、图像和 rosbag 必须按 `SECURITY.md` 处理。
+Do not copy `build/`, `install/`, or `log/` from another host; they embed absolute paths. Rebuild
+after migration according to the root README. Handle runtime logs, images, and rosbags according to
+`SECURITY.md`.

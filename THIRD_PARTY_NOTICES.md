@@ -1,40 +1,47 @@
-# 第三方组件与资产说明
+# Third-Party Components and Asset Notices
 
-本文只记录来源和发布边界，不替代任何第三方许可证。发布 GitHub 版本前，维护者必须逐项
-确认拟发布文件符合对应条款；来源或再分发权限不明确的文件不得发布。
+This file records provenance and release boundaries; it does not replace any third-party license.
+Before publishing a GitHub release, maintainers must verify each proposed file against its terms;
+files with unclear provenance or redistribution rights must not be published.
 
-## Isaac Sim 与 InteriorAgent
+## Isaac Sim and InteriorAgent
 
-Isaac Sim 本体不在本仓库中分发。使用者须自行取得兼容版本，并通过
-`ISAACSIM_PYTHON_EXE` 或 `ISAACSIM_PATH` 指向本机安装。
+Isaac Sim itself is not distributed in this repository. Users must obtain a compatible version and
+point to the local installation through `ISAACSIM_PYTHON_EXE` or `ISAACSIM_PATH`.
 
-工作区当前包含 `isaacsim-assets/InteriorAgent/kujiale_0021` living-room 场景资产。这些
-文件来源于 [InteriorAgent 数据集](https://huggingface.co/datasets/spatialverse/InteriorAgent)，
-适用其目录 README 所链接的 InteriorAgent Terms of Use，而不是本项目代码许可证。维护者
-在公开仓库前必须确认这些条款允许目标分发方式；若不能确认，应从发行包删除场景资产，
-并要求使用者按原始来源自行下载到同一相对路径。
+The workspace currently contains the `isaacsim-assets/InteriorAgent/kujiale_0021` living-room
+scene assets. These files come from the [InteriorAgent dataset](https://huggingface.co/datasets/spatialverse/InteriorAgent)
+and are subject to the InteriorAgent Terms of Use linked by its directory README, not this project's
+code license. Before publishing, maintainers must confirm that the terms permit the intended
+distribution; if they cannot, remove the scene assets from the release and require users to
+download them from the original source into the same relative path.
 
-## NeuPAN 与 checkpoint
+## NeuPAN and Checkpoints
 
-`src/NeuPAN` 和 `src/neupan_ros2` 保留各自的上游 GPL-3.0 许可证。公开演示运行所需的
-Scout checkpoint 为：
+`src/NeuPAN` and `src/neupan_ros2` retain their upstream GPL-3.0 licenses. The Scout checkpoint
+required by the public demonstration is:
 
 ```text
 src/neupan_ros2/src/neupan_ros2/config/robots/scout/models/dune_model_5000.pth
 SHA-256: 66c55fedae14bc4684f0dee9c37fe5d0e5a86abfce74ddf99af2663e85edb8de
 ```
 
-该文件与 `KevinLADLee/neupan_ros2` 上游 `main` 分支中的同路径文件校验值一致。其他机器人
-checkpoint 和训练过程权重不属于本演示，已从公开工作区移除。若后续替换模型，必须重新
-记录来源、许可证、校验值和适用机器人尺寸。
+This file has the same checksum as the file at the same path on the `main` branch of upstream
+`KevinLADLee/neupan_ros2`. Other robot checkpoints and training weights are outside this
+demonstration and have been removed from the public workspace. If the model is replaced later,
+record its source, license, checksum, and applicable robot dimensions again.
 
-## 机器人与传感器上游代码
+## Upstream Robot and Sensor Code
 
-- `src/scout_ros2`：保留目录中的 Apache-2.0 许可证。
-- `src/livox_ros_driver2`：保留目录中的 Livox/MIT 第三方许可证说明。
-- `src/ugv_sdk`、`scout_ros`、`src/agx_arm_sim`：发布前以各自上游 LICENSE 和依赖条款为准。
-- `groundingdinoVLM/THIRD_PARTY_NOTICES.md`：记录公开感知接口的适配边界；可选后端的
-  依赖、权重和许可证由部署者自行核验，不随默认 mock 演示分发。
+- `src/scout_ros2`: retains the Apache-2.0 license in its directory.
+- `src/livox_ros_driver2`: retains the Livox/MIT third-party license notice.
+- `src/ugv_sdk`, `scout_ros`, and `src/agx_arm_sim`: follow their upstream LICENSE files and
+  dependency terms before release.
+- `groundingdinoVLM/THIRD_PARTY_NOTICES.md`: records the adapter boundary for the public perception
+  interface; deployers must verify dependencies, weights, and licenses for optional backends, which
+  are not distributed with the default mock demonstration.
 
-第三方目录内的 README 是上游组件文档，可能描述独立示例、其他机器人或联网安装方式，
-不代表本项目公开默认启动链。项目实际边界和运行方式以根 `README.md` 为准。
+README files inside third-party directories are upstream component documentation and may describe
+standalone examples, other robots, or networked installation methods. They do not represent this
+project's public default startup chain. The root `README.md` defines the project's actual boundary
+and runtime.

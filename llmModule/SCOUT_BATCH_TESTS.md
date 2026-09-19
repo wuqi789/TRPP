@@ -1,7 +1,9 @@
 # Scout Module1-3 Batch Instructions
 
-> 历史/开发测试说明：本文只覆盖 Module1-3 的离线契约，不代表公开默认演示会启动云端
-> provider，也不构成真实穿帘验收。当前版本边界以仓库根 `README.md` 为准。
+> Historical/development test notes: this document covers only the offline Module1-3 contracts. It
+> does not mean that the public default demonstration starts a cloud provider, nor does it constitute
+> real curtain-traversal acceptance. The repository root `README.md` defines the current release
+> boundary.
 
 The corpus contains 24 instructions:
 

@@ -1,17 +1,18 @@
-Scout Mini 公开 mock 演示运行速查
-===================================
+Scout Mini Public Mock Demonstration Quick Reference
+====================================================
 
-本文件只给出公开默认链路。完整模块边界、本机适配和安全说明见 README.md 与 SECURITY.md。
+This file covers only the public default chain. See README.md and SECURITY.md for complete module
+boundaries, local adaptation, and security guidance.
 
-1. 本机变量
+1. Local variables
 ------------
 
-在当前 shell 设置，不要把实际路径或凭据写入仓库：
+Set these in the current shell; do not write real paths or credentials to the repository:
 
   export SCOUT_WORKSPACE=/path/to/scount-mini-ws-3
   export ISAACSIM_PYTHON_EXE=/path/to/isaacsim/python.sh
 
-2. 构建
+2. Build
 -------
 
   cd "$SCOUT_WORKSPACE"
@@ -21,19 +22,19 @@ Scout Mini 公开 mock 演示运行速查
     src/scout_ros2/scout_msgs
   source install/setup.bash
 
-不要复制其他主机的 build、install、log；迁移后重新构建。
+Do not copy build, install, or log directories from another host; rebuild after migration.
 
-3. 运行
+3. Run
 -------
 
   cd "$SCOUT_WORKSPACE"
   ./run_traversal_system.sh headless:=true use_rviz:=false
 
-默认 SCOUT_PUBLIC_BACKEND=mock，不读取凭据。带窗口运行可改为：
+The default is SCOUT_PUBLIC_BACKEND=mock and does not read credentials. To run with a window:
 
   ./run_traversal_system.sh headless:=false use_rviz:=true
 
-4. 检查
+4. Checks
 -------
 
   ros2 topic hz /odom
@@ -41,10 +42,12 @@ Scout Mini 公开 mock 演示运行速查
   ros2 run tf2_ros tf2_echo map base_link
   ros2 topic echo /semantic_navigation/status
 
-唯一验收条件：Isaac 中的小车实际沿固定 waypoint 穿过门帘，并最终发布 SUCCEEDED。
+The sole acceptance condition is that the robot actually follows the fixed waypoints through the
+curtain in Isaac and finally publishes SUCCEEDED.
 
-5. 本机硬件/正式后端
----------------------
+5. Local hardware / real backend
+--------------------------------
 
-实体 LiDAR IP、CAN 设备、provider endpoint、模型路径和凭据都属于本机私有配置。本文件
-不提供正式后端启动参数；外部 adapter 必须先满足 README.md 中的接口和安全要求。
+Physical LiDAR IPs, CAN devices, provider endpoints, model paths, and credentials are private local
+configuration. This file does not provide real-backend startup parameters; external adapters must
+first satisfy the interface and security requirements in README.md.

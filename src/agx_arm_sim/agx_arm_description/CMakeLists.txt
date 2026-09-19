@@ -7,7 +7,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 
-# 安装功能包资源目录
+# Install package resource directories
 install(
   DIRECTORY
     launch
@@ -20,18 +20,18 @@ install(
   DESTINATION share/${PROJECT_NAME}/
 )
 
-# 安装 agx_arm_urdf 子模块（URDF + mesh 文件）
-# 使用前请执行: git submodule update --init --recursive
+# Install the agx_arm_urdf submodule (URDF and mesh files)
+# Run before use: git submodule update --init --recursive
 if(EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/agx_arm_urdf")
   install(
     DIRECTORY agx_arm_urdf/
     DESTINATION share/${PROJECT_NAME}/agx_arm_urdf/
   )
-  message(STATUS "[agx_arm_description] agx_arm_urdf 子模块已找到，将安装 URDF 资源。")
+  message(STATUS "[agx_arm_description] agx_arm_urdf submodule found; installing URDF resources.")
 else()
   message(WARNING
-    "[agx_arm_description] agx_arm_urdf 子模块未找到！\n"
-    "请执行: git submodule update --init --recursive"
+    "[agx_arm_description] agx_arm_urdf submodule not found!\n"
+    "Run: git submodule update --init --recursive"
   )
 endif()
 
