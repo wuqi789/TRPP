@@ -1,6 +1,7 @@
 # Scout Mini Curtain Traversal Public Demo
 ## (The full source code is coming soon!)
 
+
 This repository is the runnable public edition of the research system. The default demo uses a
 real Isaac Sim living-room scene with Scout Mini, RTX LiDAR, odometry, TF, NeuPAN, and the base
 velocity chain. Private vision models, cloud reasoning, remote execution, and real arm motion are
