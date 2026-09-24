@@ -94,7 +94,7 @@ migrating to another host. Launch scripts write ROS logs to the ignored, permiss
 Set local installation paths in the current shell only; never commit host-specific paths:
 
 ```bash
-cd /path/to/scount-mini-ws-3
+cd /path/to/TRPP
 export SCOUT_WORKSPACE="$PWD"
 export ISAACSIM_PYTHON_EXE=/path/to/isaac-sim/python.sh
 source /opt/ros/humble/setup.bash
